@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class BLO {
     public void createPerson(Person person) throws SQLException, IOException, ClassNotFoundException {
-
+//This is a git test
         DAO dao = new DAO();
         dao.connect();
         if (person instanceof Student) {
