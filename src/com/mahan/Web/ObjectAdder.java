@@ -44,16 +44,21 @@ public class ObjectAdder extends HttpServlet {
                 rd.forward(request,response);
             }
             else if(request.getAttribute("course") != null) {
-             Course course=(Course)request.getAttribute("course");
-              ArrayList<Teacher> teachers=(ArrayList <Teacher>)request.getServletContext().getAttribute("teachers");
+                Course course=(Course)request.getAttribute("course");
+                ArrayList<Teacher> teachers=(ArrayList <Teacher>)request.getServletContext().getAttribute("teachers");
                 Long teacherId = null;
                 for(int i=0;i<teachers.size();i++){
                     if(course.getTeacherName().equals(teachers.get(i).getLastname())) {
-                         teacherId = teachers.get(i).getId();
+                        teacherId = teachers.get(i).getId();
                         break;
                     }
                 }
-                blo.createCourse(course,teacherId);
+                if(session.getAttribute("edit")==false) {
+                    blo.createCourse(course, teacherId);
+                }
+                else {
+                    blo.editCourse(course,teacherId);
+                }
                 RequestDispatcher rd = request.getRequestDispatcher("/course/showList");
                 rd.forward(request,response);
             }

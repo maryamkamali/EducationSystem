@@ -36,17 +36,18 @@ public class BaseController extends HttpServlet {
         String host = "http://" + req.getHeader("host");
         String url = req.getRequestURI().replace(host, "");
         address = url.split("/");
-        String action=null;
-        if(address.length==4){
+        String action = null;
+        if (address.length == 4) {
             Long id = Long.parseLong(address[3]);
-            req.setAttribute("id",id);
-             action = address[2];
-        }
-        else if(address.length==3){
-             action = address[2];
-        }
-        else if(address.length==2){
-            action = "showList";
+            req.setAttribute("id", id);
+            action = address[2];
+        } else if (address.length == 3) {
+            action = address[2];
+        } else if (address.length == 2) {
+            if (req.getSession().getAttribute("role_course").equals("student"))
+                action = "showFacultyCourse";
+            else
+                action = "showList";
         }
         try {
 

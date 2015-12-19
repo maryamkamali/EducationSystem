@@ -65,7 +65,7 @@
         </c:forEach>
 
     </table>
-<% ArrayList<String> fields = new ArrayList<String>();
+        <% ArrayList<String> fields = new ArrayList<String>();
     fields.add(FieldsOfStudy.IndustrialEngineering.toString());
     fields.add(FieldsOfStudy.SoftwareEngineering.toString());
     application.setAttribute("fields", fields);
@@ -77,8 +77,8 @@
 
 %>
 
-<a href="/studentadding.jsp">
-    <button class="btn btn-success">New</button>
-</a>
+    <a href="/studentadding.jsp">
+        <button class="btn btn-success">New</button>
+    </a>
 </body>
 </html>

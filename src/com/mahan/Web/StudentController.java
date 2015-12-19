@@ -13,22 +13,22 @@ import java.util.ArrayList;
  */
 public class StudentController extends BaseController{
 
-public void showList(){
-    HttpSession session = req.getSession();
-    BLO blo = new BLO();
-    try {
-        session.setAttribute("students",blo.loadStudents());
-        RequestDispatcher rd = req.getRequestDispatcher("/student.jsp");
-        rd.forward(req,res);
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-}
-    public void edit() {
-HttpSession session=req.getSession();
+    public void showList(){
+        HttpSession session = req.getSession();
+        BLO blo = new BLO();
         try {
-           session.setAttribute("edit",true);
-           int counter= ((ArrayList<Student>)session.getAttribute("students")).size();
+            session.setAttribute("students",blo.loadStudents());
+            RequestDispatcher rd = req.getRequestDispatcher("/student.jsp");
+            rd.forward(req,res);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void edit() {
+        HttpSession session=req.getSession();
+        try {
+            session.setAttribute("edit",true);
+            int counter= ((ArrayList<Student>)session.getAttribute("students")).size();
             ArrayList<Student> students=(ArrayList<Student>)session.getAttribute("students");
             for (int i=0;i<counter;i++)
             {

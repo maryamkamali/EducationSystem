@@ -12,6 +12,7 @@
 <head>
     <title>Student Adding Form</title>
     <jsp:include page="header.jsp"></jsp:include>
+    <script src="/assets/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -26,6 +27,7 @@
                         <input type="hidden" name="identifier" value="student">
                         <label> Personal Information:</label>
                         <br><br>
+
                         <div class="form-group">
                             <label for="firstname" class="col-sm-3">First Name</label>
                             <input type="text" id="firstname" class="col-sm-3" name="firstname">
@@ -64,6 +66,7 @@
                             </select>
                             <label class="col-sm-3">Degree</label>
                             <select class="col-sm-3 form-control" name="degree">
+
                                 <c:forEach var="degree" items="${degrees}">
                                     <option value="${degree}">
                                             ${degree}

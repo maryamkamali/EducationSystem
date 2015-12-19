@@ -30,6 +30,10 @@
                         <label> General Information:</label>
                         <br><br>
                         <div class="form-group">
+                            <label for="title" class="col-sm-3 control-label">Title</label>
+                            <input type="text" class="col-sm-3" id="title" name="title">
+                        </div>
+                        <div class="form-group">
                             <label class="col-sm-3 control-label" for="courseid">Course ID</label>
                             <input type="text" class="col-sm-3" id="courseid" name="courseID">
                             <label for="point" class="col-sm-3 control-label">Point</label>

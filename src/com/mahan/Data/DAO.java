@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by 921227 on 11/24/2015.
@@ -101,7 +102,7 @@ public class DAO {
         return rs;
     }
 
-    public void deleteCourse(int courseId) throws SQLException {
+    public void deleteCourse(Long courseId) throws SQLException {
         String query = "delete from [JavaTraining].[dbo].[Education_Course] where courseId='" + courseId + "'";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
@@ -114,5 +115,34 @@ public class DAO {
                 + "',[email]='" + teacher.getEmail() + "',[address]='" + teacher.getAddress() + "',[phone]='" + teacher.getTel() + "'where TeacherID = '" + teacher.getTeacherID() + "'";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
+    }
+    public void updateCourse(Course course, Long teacherId) throws SQLException {
+
+        String query = "update [dbo].[Education_Course] SET [faculty]='" + course.getFaculty() + "',[point]='" + course.getPoint()
+                + "' ,[CourseID]=" + course.getCourseID() + ",[teacherID]='" + teacherId + "',[title]='" + course.getTitle() + "' where CourseID='" + course.getCourseID() + "'";
+        java.sql.Statement stm = con.createStatement();
+        stm.executeUpdate(query);
+    }
+
+    public ResultSet selectFacultyCourses(String faculty) throws SQLException {
+        String query = "select * from [JavaTraining].[dbo].[Education_Course] where [faculty]='" + faculty + "'";
+        java.sql.Statement stm = con.createStatement();
+        ResultSet rs = stm.executeQuery(query);
+        return rs;
+    }
+
+    public ResultSet selectStudentCourses(Long studentId) throws SQLException {
+        String query = "select * from [JavaTraining].[dbo].[Education_Student_Course] where [StudentID]='" + studentId + "'";
+        java.sql.Statement stm = con.createStatement();
+        ResultSet rs = stm.executeQuery(query);
+        return rs;
+    }
+
+    public void insertStudent_Course(Long studentId, ArrayList<Integer> selectedCourse) throws SQLException {
+        for (int i = 0; i < selectedCourse.size(); i++) {
+            String query = "insert into [JavaTraining].[dbo].[Education_Student_Course]  values('" + selectedCourse.get(i) + "','" + studentId + "')";
+            java.sql.Statement stm = con.createStatement();
+            stm.executeUpdate(query);
+        }
     }
 }

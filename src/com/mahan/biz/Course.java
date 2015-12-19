@@ -10,8 +10,8 @@ public class Course {
     private String teacherName;
     private long teacherID;
     private Teacher teacher;
-    private Long ID;
-
+    private Long dbId;
+    private String title;
 
     public Long getCourseID() {
         return courseID;
@@ -60,12 +60,19 @@ public class Course {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
-
-    public Long getID() {
-        return ID;
+    public String getTitle() {
+        return title;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Long getdbId() {
+        return dbId;
+    }
+
+    public void setdbId(Long id) {
+        dbId = id;
     }
 }
