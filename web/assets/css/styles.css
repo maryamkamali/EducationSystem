@@ -1,0 +1,76 @@
+.form-layout-my{
+    padding: 20%;
+    margin: 20%;
+}
+
+.table-my{
+    /*font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;*/
+    font-family: "Times New Roman", Georgia, Serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-my td, .table-my th {
+    border: 2px solid rgba(66, 111, 72, 0.42);;
+    text-align: left;
+    width: 100%;
+    padding: 5px;
+    /*padding: 8px;*/
+}
+
+.table-my tr:nth-child(even){background-color: #f2f2f2}
+
+.table-my tr:hover {background-color: #ddd;}
+
+.table-my th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #4CAF50;
+    color: white;
+
+}
+
+.indent-small {
+    margin-left: 5px;
+}
+.form-group.internal {
+    margin-bottom: 0;
+}
+
+.dialog-panel {
+    margin: 10px;
+}
+
+.datepicker-dropdown {
+    z-index: 200 !important;
+}
+
+.panel-body {
+    font: 600 15px "Open Sans",Arial,sans-serif;
+}
+
+label.control-label {
+    font-weight: 600;
+    color: #777;
+}
+
+.btn-my {
+    background: #3d6b8a linear-gradient(to bottom, #3d6b8a, #2980b9);
+    border-radius: 21px;
+    text-shadow: 1px 1px 3px #666666;
+    font-family: Courier New;
+    color: #ffffff;
+    font-size: 31px;
+    padding: 28px;
+    border: solid #ffffff 7px;
+    text-decoration: none;
+    width: 355px;
+}
+
+.btn-my:hover {
+    background: #3cb0fd linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+.top-admin{
+    margin-top: 20%;
+}
