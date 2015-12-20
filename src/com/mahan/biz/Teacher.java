@@ -6,7 +6,7 @@ package com.mahan.biz;
 public class Teacher extends Person{
     private Faculty faculty;
     private Position position;
-    private Long teacherID;
+    private Long teacherNo;
     private Long Id;
     public Faculty getFaculty() {
         return faculty;
@@ -23,12 +23,12 @@ public class Teacher extends Person{
         this.position = position;
     }
 
-    public Long getTeacherID() {
-        return teacherID;
+    public Long getTeacherNo() {
+        return teacherNo;
     }
 
-    public void setTeacherID(Long teacherID) {
-        this.teacherID = teacherID;
+    public void setTeacherNo(Long teacherNo) {
+        this.teacherNo = teacherNo;
     }
 
     @Override

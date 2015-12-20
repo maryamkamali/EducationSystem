@@ -2,7 +2,6 @@ package com.mahan.Web;
 
 import com.mahan.biz.BLO;
 import com.mahan.biz.Course;
-import com.mahan.biz.Student;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,7 +33,7 @@ public class CourseController extends BaseController {
             int counter = ((ArrayList<Course>) session.getAttribute("courses")).size();
             ArrayList<Course> courses = (ArrayList<Course>) session.getAttribute("courses");
             for (int i = 0; i < counter; i++) {
-                if (req.getAttribute("id").equals(courses.get(i).getCourseID())) {
+                if (req.getAttribute("id").equals(courses.get(i).getCourseNo())) {
                     req.setAttribute("courseOrder", i);
                     break;
                 }

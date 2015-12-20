@@ -1,7 +1,6 @@
 package com.mahan.Web;
 
 import com.mahan.biz.BLO;
-import com.mahan.biz.Student;
 import com.mahan.biz.Teacher;
 
 import javax.servlet.RequestDispatcher;
@@ -36,7 +35,7 @@ public class TeacherController extends BaseController{
 
             for (int i=0;i<counter;i++)
             {
-                if(req.getAttribute("id").equals(teachers.get(i).getTeacherID()))
+                if(req.getAttribute("id").equals(teachers.get(i).getTeacherNo()))
                     req.setAttribute("teacherOrder", i);
             }
             RequestDispatcher rd=  req.getRequestDispatcher("/teacher_edit.jsp");

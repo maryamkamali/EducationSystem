@@ -28,12 +28,12 @@
     </tr>
     <c:forEach var="course" items="${teachercourses}">
       <tr>
-        <td>${course.courseID}</td>
+        <td>${course.courseNo}</td>
         <td>${course.faculty}</td>
         <td>${course.teacher.lastname}</td>
         <td>${course.point}</td>
         <td>
-          <a href="/course/setGrade/${course.courseID}"> <button>Grade</button></a>
+          <a href="/course/setGrade/${course.courseNo}"> <button>Grade</button></a>
 
         </td>
       </tr>

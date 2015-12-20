@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label" for="courseid">Course ID</label>
-                            <input type="text" class="col-sm-3" id="courseid" name="courseID">
+                            <input type="text" class="col-sm-3" id="courseid" name="courseNo">
                             <label for="point" class="col-sm-3 control-label">Point</label>
                             <input type="text" id="point" class="col-sm-3" name="point">
                         </div>

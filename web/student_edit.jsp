@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label for="NationalID" class="col-sm-2">National ID</label>
-                        <input type="text" id="NationalID" value="${students[studentOrder].nationalID}" class="col-sm-4" name="nationalID">
+                        <input type="text" id="NationalID" value="${students[studentOrder].nationalNo}" class="col-sm-4" name="nationalNo">
                         <label class="col-sm-2">Birth Date</label>
                         <input type="text" id="BirthDate" value="${students[studentOrder].birthDate}" class="col-sm-4" name="birthDate">
                     </div>
@@ -64,7 +64,7 @@
 
                     <div class="form-group">
                         <label for="StudentID" class="col-sm-2">Student ID</label>
-                        <input type="text" id="studentid" value="${students[studentOrder].studentID}" class="col-sm-4" name="studentID">
+                        <input type="text" id="studentid" value="${students[studentOrder].studentNo}" class="col-sm-4" name="studentNo">
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2">Field of Study</label>

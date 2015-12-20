@@ -29,17 +29,17 @@
   </tr>
   <c:forEach var="course" items="${courses}">
     <tr>
-      <td>${course.courseID}</td>
+      <td>${course.courseNo}</td>
       <td>${course.faculty}</td>
 <td>${course.teacher.lastname}</td>
       <td>${course.point}</td>
       <td>
-        <a href="/course/edit/${course.courseID}"> <button>Edit</button></a>
+        <a href="/course/edit/${course.courseNo}"> <button>Edit</button></a>
 
       </td>
       <td>
 
-        <a href="/course/delete/${course.courseID}"><button>Delete</button></a>
+        <a href="/course/delete/${course.courseNo}"><button>Delete</button></a>
 
       </td>
     </tr>

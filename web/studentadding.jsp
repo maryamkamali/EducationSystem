@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group">
                             <label for="NationalID" class="col-sm-3">National ID</label>
-                            <input type="text" id="NationalID" class="col-sm-3" name="nationalID">
+                            <input type="text" id="NationalID" class="col-sm-3" name="nationalNo">
                             <label for="BirthDate" class="col-sm-3">Birth Date</label>
                             <input id="BirthDate" type="text" name="birthDate" class="col-sm-3"/>
                         </div>
@@ -52,7 +52,7 @@
 
                         <div class="form-group">
                             <label for="StudentID" class="col-sm-3">Student ID</label>
-                            <input type="text" id="studentid" class="col-sm-3" name="studentID">
+                            <input type="text" id="studentid" class="col-sm-3" name="studentNo">
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3">Field of Study</label>

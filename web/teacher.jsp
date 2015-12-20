@@ -36,10 +36,10 @@
     </tr>
     <c:forEach var="teacher" items="${teachers}">
       <tr>
-        <td>${teacher.teacherID}</td>
+        <td>${teacher.teacherNo}</td>
         <td>${teacher.firstname}</td>
         <td>${teacher.lastname}</td>
-        <td>${teacher.nationalID}</td>
+        <td>${teacher.nationalNo}</td>
         <td>${teacher.birthDate}</td>
         <td>${teacher.gender}</td>
         <td>${teacher.faculty}</td>
@@ -49,13 +49,13 @@
         <td>${teacher.address}</td>
         <td>
 
-          <a href="/teacher/edit/${teacher.teacherID}"> <button>Edit</button></a>
+          <a href="/teacher/edit/${teacher.teacherNo}"> <button>Edit</button></a>
 
 
         </td>
         <td>
 
-          <a href="/teacher/delete/${teacher.teacherID}"><button>Delete</button></a>
+          <a href="/teacher/delete/${teacher.teacherNo}"><button>Delete</button></a>
 
         </td>
       </tr>

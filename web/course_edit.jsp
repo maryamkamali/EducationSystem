@@ -30,7 +30,7 @@
           </div>
           <div class="form-group">
             <label class="col-sm-3" for="courseid">Course ID</label>
-            <input type="text" class="col-sm-3" id="courseid" name="courseID" value="${courses[courseOrder].courseID}">
+            <input type="text" class="col-sm-3" id="courseid" name="courseNo" value="${courses[courseOrder].courseNo}">
             <label for="point" class="col-sm-3">Point</label>
             <input type="text" id="point" class="col-sm-3" name="point" value="${courses[courseOrder].point}">
           </div>

@@ -1,12 +1,10 @@
 package com.mahan.biz;
 
-import java.util.Date;
-
 /**
  * Created by 921227 on 11/24/2015.
  */
 public class Student extends Person {
-    private Long studentID;
+    private Long studentNo;
     private FieldsOfStudy fieldsOfStudy;
     private Degree degree;
 
@@ -27,12 +25,12 @@ public class Student extends Person {
         this.degree = degree;
     }
 
-    public Long getStudentID() {
-        return studentID;
+    public Long getStudentNo() {
+        return studentNo;
     }
 
-    public void setStudentID(Long studentID) {
-        this.studentID = studentID;
+    public void setStudentNo(Long studentNo) {
+        this.studentNo = studentNo;
     }
 
 }

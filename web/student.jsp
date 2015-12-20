@@ -39,10 +39,10 @@
         </tr>
         <c:forEach var="student" items="${students}">
             <tr>
-                <td>${student.studentID}</td>
+                <td>${student.studentNo}</td>
                 <td>${student.firstname}</td>
                 <td>${student.lastname}</td>
-                <td>${student.nationalID}</td>
+                <td>${student.nationalNo}</td>
                 <td>${student.birthDate}</td>
                 <td>${student.gender}</td>
                 <td>${student.fieldsOfStudy}</td>
@@ -52,13 +52,13 @@
                 <td>${student.address}</td>
                 <td>
 
-                    <a href="/student/edit/${student.studentID}"> <button>Edit</button></a>
+                    <a href="/student/edit/${student.studentNo}"> <button>Edit</button></a>
 
 
                 </td>
                 <td>
 
-                    <a href="/student/delete/${student.studentID}"><button>Delete</button></a>
+                    <a href="/student/delete/${student.studentNo}"><button>Delete</button></a>
 
                 </td>
             </tr>

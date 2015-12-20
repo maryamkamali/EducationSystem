@@ -6,7 +6,6 @@ import com.mahan.biz.Course;
 import com.mahan.biz.Student;
 import com.mahan.biz.Teacher;
 
-import java.beans.Statement;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,32 +26,33 @@ public class DAO {
     }
 
     public void insertStudent(Student student) throws SQLException {
-        String query = "insert into [dbo].[Education_Student]  values('"
-                + student.getFirstname() + "','" + student.getLastname() + "'," + student.getNationalID() + ",'" + student.getBirthDate()
-                + "','" + student.getGender() + "','" + student.getFieldsOfStudy() + "','"
-                + student.getDegree() + "','" + student.getEmail() + "','" + student.getTel() + "','" + student.getAddress() + "'," + student.getStudentID() + ")";
+        //todo userid not set
+        String query = "insert into [dbo].[Education_Student]  values('" + 1 + "','"
+                + student.getFirstname() + "','" + student.getLastname() + "'," + student.getNationalNo() + ",'" + student.getBirthDate()
+                + "','" + student.getGender() + "','" + student.getAddress() + "','" + student.getEmail() + "','" + student.getTel() + "'," + student.getStudentNo() + ",'" + student.getFieldsOfStudy() + "','"
+                + student.getDegree() + "')";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
     }
 
     public void insertTeacher(Teacher teacher) throws SQLException {
         String query = "insert into [JavaTraining].[dbo].[Education_Teacher]  values('"
-                + teacher.getFirstname() + "','" + teacher.getLastname() + "'," + teacher.getNationalID() + ",'" + teacher.getBirthDate() + "','" + teacher.getGender() + "','" + teacher.getFaculty() + "','"
-                + teacher.getPosition() + "','" + teacher.getEmail() + "','" + teacher.getAddress() + "','" + teacher.getTel() + "'," + teacher.getTeacherID() + ")";
+                + teacher.getFirstname() + "','" + teacher.getLastname() + "'," + teacher.getNationalNo() + ",'" + teacher.getBirthDate() + "','" + teacher.getGender() + "','" + teacher.getFaculty() + "','"
+                + teacher.getPosition() + "','" + teacher.getEmail() + "','" + teacher.getAddress() + "','" + teacher.getTel() + "'," + teacher.getTeacherNo() + ")";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
     }
 
     public void insertAdmin(Admin admin) throws SQLException {
         String query = "insert into [dbo].[Education_Student]  values('"
-                + admin.getFirstname() + "','" + admin.getLastname() + "'," + admin.getNationalID() + ",'2004-10-10'"
+                + admin.getFirstname() + "','" + admin.getLastname() + "'," + admin.getNationalNo() + ",'2004-10-10'"
                 + ",'" + admin.getGender() + "','" + admin.getEmail() + "','" + admin.getTel() + "','" + admin.getAddress() + "')";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
     }
 
     public void insertCourse(Course course, Long teacherId) throws SQLException {
-        String query = "insert into [dbo].[Education_Course]  values('" + course.getFaculty() + "','" + course.getPoint() + "','" + course.getCourseID() +"','"+teacherId+ "')";
+        String query = "insert into [dbo].[Education_Course]  values('" + course.getFaculty() + "','" + course.getPoint() + "','" + course.getCourseNo() +"','"+teacherId+ "')";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
     }
@@ -73,10 +73,10 @@ public class DAO {
 
     public void updateStudent(Student student) throws SQLException {
         String query = "update [JavaTraining].[dbo].[Education_Student] SET [firstName]='" + student.getFirstname() + "',[lastName]='" + student.getLastname()
-                + "' ,[nationalID]=" + student.getNationalID() + ",[birthDate]='" + student.getBirthDate()
+                + "' ,[nationalID]=" + student.getNationalNo() + ",[birthDate]='" + student.getBirthDate()
                 + "',[gender]='" + student.getGender() + "',[field]='" + student.getFieldsOfStudy() + "',[degree]='" + student.getDegree()
                 + "',[email]='" + student.getEmail() + "',[tel]='" + student.getTel() + "',[address]='" + student.getAddress() + "'"
-                + "where studentID = '" + student.getStudentID() + "'";
+                + "where studentID = '" + student.getStudentNo() + "'";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
 
@@ -110,16 +110,16 @@ public class DAO {
 
     public void updateTeacher(Teacher teacher) throws SQLException {
         String query = "update [JavaTraining].[dbo].[Education_Teacher] SET [firstName]='" + teacher.getFirstname() + "',[lastName]='" + teacher.getLastname()
-                + "' ,[nationalID]=" + teacher.getNationalID() + ",[birthDate]='" + teacher.getBirthDate()
+                + "' ,[nationalID]=" + teacher.getNationalNo() + ",[birthDate]='" + teacher.getBirthDate()
                 + "',[gender]='" + teacher.getGender() + "',[faculty]='" + teacher.getFaculty() + "',[position]='" + teacher.getPosition()
-                + "',[email]='" + teacher.getEmail() + "',[address]='" + teacher.getAddress() + "',[phone]='" + teacher.getTel() + "'where TeacherID = '" + teacher.getTeacherID() + "'";
+                + "',[email]='" + teacher.getEmail() + "',[address]='" + teacher.getAddress() + "',[phone]='" + teacher.getTel() + "'where TeacherID = '" + teacher.getTeacherNo() + "'";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
     }
     public void updateCourse(Course course, Long teacherId) throws SQLException {
 
         String query = "update [dbo].[Education_Course] SET [faculty]='" + course.getFaculty() + "',[point]='" + course.getPoint()
-                + "' ,[CourseID]=" + course.getCourseID() + ",[teacherID]='" + teacherId + "',[title]='" + course.getTitle() + "' where CourseID='" + course.getCourseID() + "'";
+                + "' ,[CourseID]=" + course.getCourseNo() + ",[teacherID]='" + teacherId + "',[title]='" + course.getTitle() + "' where CourseID='" + course.getCourseNo() + "'";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
     }

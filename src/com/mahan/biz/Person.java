@@ -1,14 +1,12 @@
 package com.mahan.biz;
 
-import java.sql.Date;
-
 /**
  * Created by 921227 on 11/11/2015.
  */
 public  class Person {
     private String firstname;
     private String lastname;
-    private long nationalID;
+    private long nationalNo;
     private String birthDate;
     private String gender;
     private String email;
@@ -23,8 +21,8 @@ public  class Person {
         return gender;
     }
 
-    public long getNationalID() {
-        return nationalID;
+    public long getNationalNo() {
+        return nationalNo;
     }
 
     public String getAddress() {
@@ -70,8 +68,8 @@ public  class Person {
         this.lastname = lastname;
     }
 
-    public void setNationalID(long nationalID) {
-        this.nationalID = nationalID;
+    public void setNationalNo(long nationalNo) {
+        this.nationalNo = nationalNo;
     }
 
     public void setTel(String tel) {
