@@ -32,8 +32,8 @@
                         <input type="text" id="lastname" class="col-sm-3" name="lastname">
                     </div>
                     <div class="form-group">
-                        <label for="NationalID" class="col-sm-3">National ID</label>
-                        <input type="text" id="NationalID" class="col-sm-3" name="nationalNo">
+                        <label for="NationalNo" class="col-sm-3">National ID</label>
+                        <input type="text" id="NationalNo" class="col-sm-3" name="nationalNo">
                         <label for="BirthDate" class="col-sm-3">Birth Date</label>
                         <input type="text" id="BirthDate" class="col-sm-3" name="birthDate">
 

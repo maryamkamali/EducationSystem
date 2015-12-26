@@ -41,8 +41,8 @@
                         <input type="text" id="lastname" value="${students[studentOrder].lastname}" class="col-sm-4" name="lastname">
                     </div>
                     <div class="form-group">
-                        <label for="NationalID" class="col-sm-2">National ID</label>
-                        <input type="text" id="NationalID" value="${students[studentOrder].nationalNo}" class="col-sm-4" name="nationalNo">
+                        <label for="NationalNo" class="col-sm-2">National ID</label>
+                        <input type="text" id="NationalNo" value="${students[studentOrder].nationalNo}" class="col-sm-4" name="nationalNo">
                         <label class="col-sm-2">Birth Date</label>
                         <input type="text" id="BirthDate" value="${students[studentOrder].birthDate}" class="col-sm-4" name="birthDate">
                     </div>

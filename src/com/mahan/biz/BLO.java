@@ -40,17 +40,17 @@ public class BLO {
         ArrayList<Student> students = new ArrayList<>();
         while (rs.next()) {
             Student student = new Student();
-            student.setFirstname(rs.getString("firstName"));
-            student.setLastname(rs.getString("lastName"));
-            student.setNationalNo(rs.getLong("nationalID"));
-            student.setBirthDate(rs.getString("birthDate"));
-            student.setGender(rs.getString("gender"));
-            student.setFieldsOfStudy((FieldsOfStudy.valueOf(rs.getString("field"))));
-            student.setDegree((Degree.valueOf(rs.getString("degree"))));
-            student.setEmail(rs.getString("email"));
-            student.setTel(rs.getString("tel"));
-            student.setAddress(rs.getString("address"));
-            student.setStudentNo(rs.getLong("studentID"));
+            student.setFirstname(rs.getString("FirstName"));
+            student.setLastname(rs.getString("LastName"));
+            student.setNationalNo(rs.getLong("NationalID"));
+            student.setBirthDate(rs.getString("BirthDate"));
+            student.setGender(rs.getString("Gender"));
+            student.setFieldsOfStudy((FieldsOfStudy.valueOf(rs.getString("Field"))));
+            student.setDegree((Degree.valueOf(rs.getString("Degree"))));
+            student.setEmail(rs.getString("Email"));
+            student.setTel(rs.getString("Tel"));
+            student.setAddress(rs.getString("Address"));
+            student.setStudentNo(rs.getLong("StudentID"));
             students.add(student);
         }
         return students;
@@ -83,18 +83,18 @@ public class BLO {
         ArrayList<Teacher> teachers = new ArrayList<>();
         while (rs.next()){
             Teacher teacher = new Teacher();
-            teacher.setId(rs.getLong("ID"));
-            teacher.setTeacherNo(rs.getLong("teacherID"));
-            teacher.setLastname(rs.getString("lastName"));
-            teacher.setFirstname(rs.getString("firstName"));
-            teacher.setFaculty(Faculty.valueOf(rs.getString("faculty")));
-            teacher.setPosition((Position.valueOf(rs.getString("position"))));
-            teacher.setBirthDate(rs.getString("birthDate"));
-            teacher.setAddress(rs.getString("address"));
-            teacher.setEmail(rs.getString("email"));
-            teacher.setGender(rs.getString("gender"));
-            teacher.setNationalNo(rs.getLong("nationalID"));
-            teacher.setTel(rs.getString("phone"));
+            teacher.setId(rs.getLong("Id"));
+            teacher.setTeacherNo(rs.getLong("TeacherID"));
+            teacher.setLastname(rs.getString("LastName"));
+            teacher.setFirstname(rs.getString("FirstName"));
+            teacher.setFaculty(Faculty.valueOf(rs.getString("Faculty")));
+            teacher.setPosition((Position.valueOf(rs.getString("Position"))));
+            teacher.setBirthDate(rs.getString("BirthDate"));
+            teacher.setAddress(rs.getString("Address"));
+            teacher.setEmail(rs.getString("Email"));
+            teacher.setGender(rs.getString("Gender"));
+            teacher.setNationalNo(rs.getLong("NationalNo"));
+            teacher.setTel(rs.getString("Tel"));
             teachers.add(teacher);
 
         }
@@ -118,7 +118,7 @@ public class BLO {
             course.setFaculty(Faculty.valueOf(rs.getString("faculty")));
             course.setPoint(rs.getInt("point"));
             course.setTeacher(getTeacherbyId(Long.valueOf(rs.getInt("teacherID"))));
-            course.setdbId(Long.valueOf(rs.getInt("ID")));
+            course.setId(Long.valueOf(rs.getInt("ID")));
             courses.add(course);
         }
         return courses;
@@ -145,7 +145,7 @@ public class BLO {
             course.setCourseNo(rs.getLong("courseID"));
             course.setFaculty(Faculty.valueOf(rs.getString("faculty")));
             course.setPoint(rs.getInt("point"));
-            course.setdbId(rs.getLong("ID"));
+            course.setId(rs.getLong("ID"));
             courses.add(course);
 
         }
