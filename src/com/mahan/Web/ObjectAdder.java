@@ -49,7 +49,7 @@ public class ObjectAdder extends HttpServlet {
                 Long teacherId = null;
                 for(int i=0;i<teachers.size();i++){
                     if(course.getTeacherName().equals(teachers.get(i).getLastname())) {
-                        teacherId = teachers.get(i).getId();
+                        teacherId = teachers.get(i).getdId();
                         break;
                     }
                 }

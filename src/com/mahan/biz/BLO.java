@@ -42,7 +42,7 @@ public class BLO {
             Student student = new Student();
             student.setFirstname(rs.getString("FirstName"));
             student.setLastname(rs.getString("LastName"));
-            student.setNationalNo(rs.getLong("NationalID"));
+            student.setNationalNo(rs.getLong("NationalNo"));
             student.setBirthDate(rs.getString("BirthDate"));
             student.setGender(rs.getString("Gender"));
             student.setFieldsOfStudy((FieldsOfStudy.valueOf(rs.getString("Field"))));
@@ -50,7 +50,8 @@ public class BLO {
             student.setEmail(rs.getString("Email"));
             student.setTel(rs.getString("Tel"));
             student.setAddress(rs.getString("Address"));
-            student.setStudentNo(rs.getLong("StudentID"));
+            student.setStudentNo(rs.getLong("StudentNo"));
+            student.setdId(rs.getLong("Id"));
             students.add(student);
         }
         return students;
@@ -83,8 +84,8 @@ public class BLO {
         ArrayList<Teacher> teachers = new ArrayList<>();
         while (rs.next()){
             Teacher teacher = new Teacher();
-            teacher.setId(rs.getLong("Id"));
-            teacher.setTeacherNo(rs.getLong("TeacherID"));
+            teacher.setdId(rs.getLong("Id"));
+            teacher.setTeacherNo(rs.getLong("TeacherNo"));
             teacher.setLastname(rs.getString("LastName"));
             teacher.setFirstname(rs.getString("FirstName"));
             teacher.setFaculty(Faculty.valueOf(rs.getString("Faculty")));
@@ -100,7 +101,7 @@ public class BLO {
         }
         return teachers;
     }
-    public void deleteTeacher(int teacherId) throws SQLException, IOException, ClassNotFoundException {
+    public void deleteTeacher(Long teacherId) throws SQLException, IOException, ClassNotFoundException {
         DAO dao = new DAO();
         dao.connect();
         dao.deleteTeacher(teacherId);
@@ -114,11 +115,12 @@ public class BLO {
         while (rs.next()){
             Course course = new Course();
             // course.setTeacherNo(rs.getLong("teacherID"));
-            course.setCourseNo(rs.getLong("courseID"));
-            course.setFaculty(Faculty.valueOf(rs.getString("faculty")));
-            course.setPoint(rs.getInt("point"));
-            course.setTeacher(getTeacherbyId(Long.valueOf(rs.getInt("teacherID"))));
-            course.setId(Long.valueOf(rs.getInt("ID")));
+            course.setCourseNo(rs.getLong("CourseNo"));
+            course.setFaculty(Faculty.valueOf(rs.getString("Faculty")));
+            course.setPoint(rs.getInt("Point"));
+            course.setTeacher(getTeacherbyId(Long.valueOf(rs.getInt("Id_Education_Teacher"))));
+            course.setdId(Long.valueOf(rs.getInt("Id")));
+            course.setTitle(rs.getString("Title"));
             courses.add(course);
         }
         return courses;
@@ -142,10 +144,10 @@ public class BLO {
         while (rs.next()){
             Course course = new Course();
 //            course.setTeacherName(rs.getLong("teacherID"));
-            course.setCourseNo(rs.getLong("courseID"));
-            course.setFaculty(Faculty.valueOf(rs.getString("faculty")));
-            course.setPoint(rs.getInt("point"));
-            course.setId(rs.getLong("ID"));
+            course.setCourseNo(rs.getLong("CourseNo"));
+            course.setFaculty(Faculty.valueOf(rs.getString("Faculty")));
+            course.setPoint(rs.getInt("Point"));
+            course.setdId(rs.getLong("Id"));
             courses.add(course);
 
         }
@@ -160,9 +162,9 @@ public class BLO {
         while (rs.next()){
             Course course = new Course();
 //            course.setTeacherName(rs.getLong("teacherID"));
-            course.setCourseNo(rs.getLong("courseID"));
-            course.setFaculty(Faculty.valueOf(rs.getString("faculty")));
-            course.setPoint(rs.getInt("point"));
+            course.setCourseNo(rs.getLong("CourseNo"));
+            course.setFaculty(Faculty.valueOf(rs.getString("Faculty")));
+            course.setPoint(rs.getInt("Point"));
             courses.add(course);
 
         }
@@ -180,7 +182,7 @@ public class BLO {
         ArrayList<Teacher> teachers = loadTeachers();
         Teacher teacher = new Teacher();
         for (int i=0;i<teachers.size();i++){
-            if (teachers.get(i).getId()==teacherID){
+            if (teachers.get(i).getdId()==teacherID){
                 teacher = teachers.get(i);
             }
         }
@@ -191,7 +193,7 @@ public class BLO {
         ArrayList<Course> teacherCourses = new ArrayList<>();
         ArrayList<Course> allCourses = loadCourses();
         for (int i=0;i<allCourses.size();i++){
-            if(allCourses.get(i).getTeacher().getId()==teacherID){
+            if(allCourses.get(i).getTeacher().getdId()==teacherID){
                 teacherCourses.add(allCourses.get(i));
             }
         }

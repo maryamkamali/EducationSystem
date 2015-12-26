@@ -8,7 +8,6 @@ public class Student extends Person {
     private FieldsOfStudy fieldsOfStudy;
     private Degree degree;
 
-
     public FieldsOfStudy getFieldsOfStudy() {
         return fieldsOfStudy;
     }

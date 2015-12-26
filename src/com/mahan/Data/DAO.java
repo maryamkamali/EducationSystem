@@ -52,7 +52,7 @@ public class DAO {
     }
 
     public void insertCourse(Course course, Long teacherId) throws SQLException {
-        String query = "insert into [dbo].[Education_Course]  values('" + course.getFaculty() + "','" + course.getPoint() + "','" + course.getCourseNo() + "','" + teacherId + "')";
+        String query = "insert into [dbo].[Education_Course]  values('" + course.getFaculty() + "','" + course.getPoint() + "','" + course.getCourseNo() + "','" + teacherId + "','" + course.getTitle() + "')";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
     }
@@ -74,8 +74,8 @@ public class DAO {
     public void updateStudent(Student student) throws SQLException {
         String query = "update [JavaTraining].[dbo].[Education_Student] SET [FirstName]='" + student.getFirstname() + "',[LastName]='" + student.getLastname()
                 + "' ,[NationalNo]=" + student.getNationalNo() + ",[BirthDate]='" + student.getBirthDate()
-                + "',[Gender]='" + student.getGender() + "',[Address]='" + student.getAddress() + "',[Email]='" + student.getEmail() + "',[Tel]='" + student.getTel() + "',[Field]='" + student.getFieldsOfStudy() + "',[StudentNo]='" + student.getStudentNo() + "',[Degree]='" + student.getDegree()
-                + "'," + "where studentNo = '" + student.getStudentNo() + "'";
+                + "',[Gender]='" + student.getGender() + "',[Address]='" + student.getAddress()+ "',[Email]='" + student.getEmail() + "',[Tel]='" + student.getTel() + "',[Field]='" + student.getFieldsOfStudy() + "',[StudentNo]='" + student.getStudentNo() + "',[Degree]='" + student.getDegree()
+                + "'" + "where StudentNo = '" + student.getStudentNo() + "'";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
 
@@ -88,7 +88,7 @@ public class DAO {
         return rs;
     }
 
-    public void deleteTeacher(int teacherId) throws SQLException {
+    public void deleteTeacher(Long teacherId) throws SQLException {
         String query = "delete from [JavaTraining].[dbo].[Education_Teacher] where Id='" + teacherId + "'";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);

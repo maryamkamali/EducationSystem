@@ -33,7 +33,7 @@ public class CourseController extends BaseController {
             int counter = ((ArrayList<Course>) session.getAttribute("courses")).size();
             ArrayList<Course> courses = (ArrayList<Course>) session.getAttribute("courses");
             for (int i = 0; i < counter; i++) {
-                if (req.getAttribute("id").equals(courses.get(i).getCourseNo())) {
+                if (req.getAttribute("id").equals(courses.get(i).getdId())) {
                     req.setAttribute("courseOrder", i);
                     break;
                 }

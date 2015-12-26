@@ -35,7 +35,7 @@ public class TeacherController extends BaseController{
 
             for (int i=0;i<counter;i++)
             {
-                if(req.getAttribute("id").equals(teachers.get(i).getTeacherNo()))
+                if(req.getAttribute("id").equals(teachers.get(i).getdId()))
                     req.setAttribute("teacherOrder", i);
             }
             RequestDispatcher rd=  req.getRequestDispatcher("/teacher_edit.jsp");
@@ -52,7 +52,7 @@ public class TeacherController extends BaseController{
 
         BLO blo = new BLO();
         try {
-            int teacherId=(Integer)req.getAttribute("id");
+            Long teacherId=(Long)req.getAttribute("id");
             blo.deleteTeacher(teacherId);
             showList();
         } catch (Exception e) {

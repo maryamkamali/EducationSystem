@@ -22,16 +22,16 @@
 
     <table style="width:100%" border="1" class="table-my">
         <tr>
-            <th>Student ID</th>
+            <th>Student Number</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>National ID</th>
+            <th>National Number</th>
             <th>Birth Date</th>
             <th>Gender</th>
             <th>Field</th>
             <th>Degree</th>
             <th>Email</th>
-            <th>Phone</th>
+            <th>Tel</th>
             <th>Address</th>
             <th></th>
             <th></th>
@@ -52,13 +52,13 @@
                 <td>${student.address}</td>
                 <td>
 
-                    <a href="/student/edit/${student.studentNo}"> <button>Edit</button></a>
+                    <a href="/student/edit/${student.dId}"> <button>Edit</button></a>
 
 
                 </td>
                 <td>
 
-                    <a href="/student/delete/${student.studentNo}"><button>Delete</button></a>
+                    <a href="/student/delete/${student.dId}"><button>Delete</button></a>
 
                 </td>
             </tr>

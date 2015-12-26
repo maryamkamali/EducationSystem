@@ -32,7 +32,7 @@ public class StudentController extends BaseController{
             ArrayList<Student> students=(ArrayList<Student>)session.getAttribute("students");
             for (int i=0;i<counter;i++)
             {
-                if(req.getAttribute("id").equals(students.get(i).getStudentNo()))
+                if(req.getAttribute("id").equals(students.get(i).getdId()))
                     req.setAttribute("studentOrder", i);
             }
             RequestDispatcher rd=  req.getRequestDispatcher("/student_edit.jsp");

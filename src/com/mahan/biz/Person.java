@@ -3,7 +3,7 @@ package com.mahan.biz;
 /**
  * Created by 921227 on 11/11/2015.
  */
-public  class Person {
+public class Person {
     private String firstname;
     private String lastname;
     private long nationalNo;
@@ -12,7 +12,7 @@ public  class Person {
     private String email;
     private String tel;
     private String address;
-
+private Long dId;
     public String getBirthDate() {
         return birthDate;
     }
@@ -48,6 +48,7 @@ public  class Person {
     public void setAddress(String address) {
         this.address = address;
     }
+
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
@@ -76,4 +77,11 @@ public  class Person {
         this.tel = tel;
     }
 
+    public Long getdId() {
+        return dId;
+    }
+
+    public void setdId(Long dId) {
+        this.dId = dId;
+    }
 }

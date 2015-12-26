@@ -14,7 +14,7 @@
   <script src="/assets/js/jquery-2.1.4.js"></script>
 </head>
 <body>
-<a href="adminhome.jsp">
+<a href="/adminhome.jsp">
   <button>Home</button>
 </a>
 

@@ -19,7 +19,8 @@
 <jsp:include page="header.jsp"></jsp:include>
 <table class="table-my" style="width:100%" border="1">
   <tr>
-    <th>Course ID</th>
+    <th>Course Number</th>
+    <th>Title</th>
     <th>Faculty</th>
     <th>Teacher</th>
     <th>Point</th>
@@ -30,16 +31,17 @@
   <c:forEach var="course" items="${courses}">
     <tr>
       <td>${course.courseNo}</td>
+      <td>${course.title}</td>
       <td>${course.faculty}</td>
 <td>${course.teacher.lastname}</td>
       <td>${course.point}</td>
       <td>
-        <a href="/course/edit/${course.courseNo}"> <button>Edit</button></a>
+        <a href="/course/edit/${course.dId}"> <button>Edit</button></a>
 
       </td>
       <td>
 
-        <a href="/course/delete/${course.courseNo}"><button>Delete</button></a>
+        <a href="/course/delete/${course.dId}"><button>Delete</button></a>
 
       </td>
     </tr>

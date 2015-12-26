@@ -44,9 +44,9 @@ public class BaseController extends HttpServlet {
         } else if (address.length == 3) {
             action = address[2];
         } else if (address.length == 2) {
-            if (req.getSession().getAttribute("role_course").equals("student"))
-                action = "showFacultyCourse";
-            else
+           // if (req.getSession().getAttribute("role_course").equals("student"))
+              //  action = "showFacultyCourse";
+          //  else
                 action = "showList";
         }
         try {

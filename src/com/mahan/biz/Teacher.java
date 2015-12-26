@@ -7,7 +7,6 @@ public class Teacher extends Person{
     private Faculty faculty;
     private Position position;
     private Long teacherNo;
-    private Long Id;
     public Faculty getFaculty() {
         return faculty;
     }
@@ -36,11 +35,4 @@ public class Teacher extends Person{
         return this.getLastname();
     }
 
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
 }

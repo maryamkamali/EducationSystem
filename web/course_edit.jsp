@@ -29,7 +29,7 @@
             <input type="text" class="col-sm-3" id="title" name="title" value="${courses[courseOrder].title}">
           </div>
           <div class="form-group">
-            <label class="col-sm-3" for="courseid">Course ID</label>
+            <label class="col-sm-3" for="courseid">Course Number</label>
             <input type="text" class="col-sm-3" id="courseid" name="courseNo" value="${courses[courseOrder].courseNo}">
             <label for="point" class="col-sm-3">Point</label>
             <input type="text" id="point" class="col-sm-3" name="point" value="${courses[courseOrder].point}">

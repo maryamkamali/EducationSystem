@@ -19,16 +19,16 @@
 <div class="container">
   <table style="width:100%" border="1" class="table-my">
     <tr>
-      <th>Teacher ID</th>
+      <th>Teacher Number</th>
       <th>First Name</th>
       <th>Last Name</th>
-      <th>National ID</th>
+      <th>National Number</th>
       <th>Birth Date</th>
       <th>Gender</th>
       <th>Faculty</th>
       <th>Position</th>
       <th>Email</th>
-      <th>Phone</th>
+      <th>Tel</th>
       <th>Address</th>
       <th></th>
       <th></th>
@@ -49,13 +49,13 @@
         <td>${teacher.address}</td>
         <td>
 
-          <a href="/teacher/edit/${teacher.teacherNo}"> <button>Edit</button></a>
+          <a href="/teacher/edit/${teacher.dId}"> <button>Edit</button></a>
 
 
         </td>
         <td>
 
-          <a href="/teacher/delete/${teacher.teacherNo}"><button>Delete</button></a>
+          <a href="/teacher/delete/${teacher.dId}"><button>Delete</button></a>
 
         </td>
       </tr>
