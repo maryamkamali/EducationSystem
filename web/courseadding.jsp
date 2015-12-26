@@ -48,16 +48,6 @@
                                             ${teacher.lastname}
                                     </option>
                                 </c:forEach>
-                            </select>
-                            <label class="col-sm-3">Faculty</label>
-                            <select class="col-sm-3 form-control" name="faculty" name="faculty">
-
-                                <c:forEach var="faculty" items="${faculties}">
-                                    <option value="${faculty}">
-                                            ${faculty}
-                                    </option>
-                                </c:forEach>
-                            </select>
                         </div>
                         <button class="btn btn-success">Submit</button>
                     </form>

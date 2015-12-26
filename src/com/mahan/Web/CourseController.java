@@ -87,17 +87,16 @@ public class CourseController extends BaseController {
     public void showStudentCourse() {
         HttpSession session = req.getSession();
         BLO blo = new BLO();
-        Long studentId = null;
-
+        Long studentId = 2L;
         try {
             //todo
-
             String[] selectedCourse_String = req.getParameterValues("myTextEditBox");
             ArrayList selectedCourse = new ArrayList();
             for (int i = 0; i < selectedCourse_String.length; i++) {
                 selectedCourse.add(Integer.parseInt(selectedCourse_String[i]));
             }
             blo.addCourseStudent(studentId, selectedCourse);
+
             session.setAttribute("selectedCourses", blo.loadStudentCourses(studentId));
             RequestDispatcher rd = req.getRequestDispatcher("/studentcourse.jsp");
             rd.forward(req, res);

@@ -143,9 +143,10 @@ public class BLO {
         ArrayList<Course> courses = new ArrayList<>();
         while (rs.next()){
             Course course = new Course();
-//            course.setTeacherName(rs.getLong("teacherID"));
             course.setCourseNo(rs.getLong("CourseNo"));
+            course.setTitle(rs.getString("title"));
             course.setFaculty(Faculty.valueOf(rs.getString("Faculty")));
+            course.setTeacherName(rs.getString("LastName"));
             course.setPoint(rs.getInt("Point"));
             course.setdId(rs.getLong("Id"));
             courses.add(course);
@@ -161,9 +162,10 @@ public class BLO {
         ArrayList<Course> courses = new ArrayList<>();
         while (rs.next()){
             Course course = new Course();
-//            course.setTeacherName(rs.getLong("teacherID"));
             course.setCourseNo(rs.getLong("CourseNo"));
+            course.setTitle(rs.getString("Title"));
             course.setFaculty(Faculty.valueOf(rs.getString("Faculty")));
+            course.setTeacherName(rs.getString("FirstName")+" "+rs.getString("LastName"));
             course.setPoint(rs.getInt("Point"));
             courses.add(course);
 
@@ -193,7 +195,7 @@ public class BLO {
         ArrayList<Course> teacherCourses = new ArrayList<>();
         ArrayList<Course> allCourses = loadCourses();
         for (int i=0;i<allCourses.size();i++){
-            if(allCourses.get(i).getTeacher().getdId()==teacherID){
+            if (allCourses.get(i).getTeacher().getdId()==teacherID){
                 teacherCourses.add(allCourses.get(i));
             }
         }
