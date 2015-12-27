@@ -29,25 +29,24 @@
                         <input type="hidden" name="identifier" value="course">
                         <label> General Information:</label>
                         <br><br>
+
                         <div class="form-group">
                             <label for="title" class="col-sm-3 control-label">Title</label>
                             <input type="text" class="col-sm-3" id="title" name="title">
-                        </div>
-                        <div class="form-group">
                             <label class="col-sm-3 control-label" for="courseid">Course Number</label>
                             <input type="text" class="col-sm-3" id="courseid" name="courseNo">
-                            <label for="point" class="col-sm-3 control-label">Point</label>
-                            <input type="text" id="point" class="col-sm-3" name="point">
                         </div>
                         <div class="form-group">
+                            <label for="point" class="col-sm-3 control-label">Point</label>
+                            <input type="text" id="point" class="col-sm-3" name="point">
                             <label class="col-sm-3">Teacher</label>
-                            <select class="col-sm-3 form-control"  name="teacherName">
-
+                            <select class="col-sm-3 form-control" name="teacherName">
                                 <c:forEach var="teacher" items="${teachers}">
                                     <option value="${teacher.lastname}">
                                             ${teacher.lastname}
                                     </option>
                                 </c:forEach>
+                            </select>
                         </div>
                         <button class="btn btn-success">Submit</button>
                     </form>
@@ -58,8 +57,8 @@
 </div>
 <script>
     $('label').addClass('control-label');
-    $('select').css('width','25%');
-    $('label').css('text-align','left');
+    $('select').css('width', '25%');
+    $('label').css('text-align', 'left');
 </script>
 </body>
 </html>

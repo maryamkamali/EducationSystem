@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <welcome-file-list>
-        <welcome-file>adminhome.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>myObjectAdder</servlet-name>
@@ -39,5 +39,21 @@
     <servlet-mapping>
         <servlet-name>myCourse</servlet-name>
         <url-pattern>/course/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>myLoginController</servlet-name>
+        <servlet-class>com.mahan.Web.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myLoginController</servlet-name>
+        <url-pattern>/loginController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>myErrorHandler</servlet-name>
+        <servlet-class>com.mahan.Web.ErrorHandler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myErrorHandler</servlet-name>
+        <url-pattern>/ErrorHandler</url-pattern>
     </servlet-mapping>
 </web-app>

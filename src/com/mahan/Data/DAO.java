@@ -7,10 +7,7 @@ import com.mahan.biz.Student;
 import com.mahan.biz.Teacher;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 /**
@@ -147,5 +144,12 @@ public class DAO {
             stm.executeUpdate(query);
         }
     }
+    public ResultSet selectUser(String userName) throws SQLException {
 
+        String query = "select * from [JavaTraining].[dbo].[Education_User] where [UserName]=" + "'" + userName + "'";
+        Statement stm = con.createStatement();
+        ResultSet resultSet = stm.executeQuery(query);
+        return resultSet;
+
+    }
 }

@@ -2,6 +2,7 @@ package com.mahan.biz;
 
 import com.mahan.Data.DAO;
 
+import javax.naming.NamingException;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -116,7 +117,6 @@ public class BLO {
             Course course = new Course();
             // course.setTeacherNo(rs.getLong("teacherID"));
             course.setCourseNo(rs.getLong("CourseNo"));
-            course.setFaculty(Faculty.valueOf(rs.getString("Faculty")));
             course.setPoint(rs.getInt("Point"));
             course.setTeacher(getTeacherbyId(Long.valueOf(rs.getInt("Id_Education_Teacher"))));
             course.setdId(Long.valueOf(rs.getInt("Id")));
@@ -202,4 +202,21 @@ public class BLO {
         return teacherCourses;
     }
 
+    public Person createUser(String userName)
+            throws SQLException, NamingException, IOException, ClassNotFoundException {
+        DAO db;
+        db = new DAO();
+        db.connect();
+        Person person = null;
+        ResultSet rs = db.selectUser(userName);
+
+        while (rs.next()) {
+            person = new Person();
+            person.setUserName(rs.getString("UserName"));
+            person.setPassword(rs.getString("Password"));
+            person.setdId(rs.getLong("Id"));
+            person.setRole(rs.getInt("role"));
+        }
+        return person;
+    }
 }
