@@ -21,7 +21,6 @@
   <tr>
     <th>Course Number</th>
     <th>Title</th>
-    <th>Faculty</th>
     <th>Teacher</th>
     <th>Point</th>
     <th></th>
@@ -32,7 +31,6 @@
     <tr>
       <td>${course.courseNo}</td>
       <td>${course.title}</td>
-      <td>${course.faculty}</td>
 <td>${course.teacher.lastname}</td>
       <td>${course.point}</td>
       <td>
@@ -49,11 +47,6 @@
 
 </table>
 <%
-  ArrayList<String> faculties = new ArrayList<String>();
-  faculties.add(Faculty.Industrial.toString());
-  faculties.add(Faculty.Chemical.toString());
-  faculties.add(Faculty.Engineering.toString());
-  application.setAttribute("faculties",faculties);
   BLO blo = new BLO();
   ArrayList<Teacher> teachers = blo.loadTeachers();
   application.setAttribute("teachers",teachers);

@@ -61,9 +61,8 @@ public class BLO {
     public void deleteStudent(Long StudentId) throws SQLException, IOException, ClassNotFoundException {
         DAO dao = new DAO();
         dao.connect();
-       dao.deleteStudent(StudentId);
+        dao.deleteStudent(StudentId);
     }
-
 
 
     public void editPerson(Person person) throws SQLException, IOException, ClassNotFoundException {
@@ -71,25 +70,24 @@ public class BLO {
         dao.connect();
         if (person instanceof Student) {
             dao.updateStudent((Student) person);
-        }
-        else if (person instanceof Teacher) {
+        } else if (person instanceof Teacher) {
             dao.updateTeacher((Teacher) person);
         } else if (person instanceof Admin) {
             dao.insertAdmin((Admin) person);
         }
     }
+
     public ArrayList<Teacher> loadTeachers() throws SQLException, IOException, ClassNotFoundException {
         DAO dao = new DAO();
         dao.connect();
         ResultSet rs = dao.selectTeachers();
         ArrayList<Teacher> teachers = new ArrayList<>();
-        while (rs.next()){
+        while (rs.next()) {
             Teacher teacher = new Teacher();
             teacher.setdId(rs.getLong("Id"));
             teacher.setTeacherNo(rs.getLong("TeacherNo"));
             teacher.setLastname(rs.getString("LastName"));
             teacher.setFirstname(rs.getString("FirstName"));
-            teacher.setFaculty(Faculty.valueOf(rs.getString("Faculty")));
             teacher.setPosition((Position.valueOf(rs.getString("Position"))));
             teacher.setBirthDate(rs.getString("BirthDate"));
             teacher.setAddress(rs.getString("Address"));
@@ -102,6 +100,7 @@ public class BLO {
         }
         return teachers;
     }
+
     public void deleteTeacher(Long teacherId) throws SQLException, IOException, ClassNotFoundException {
         DAO dao = new DAO();
         dao.connect();
@@ -113,7 +112,7 @@ public class BLO {
         dao.connect();
         ResultSet rs = dao.selectCourses();
         ArrayList<Course> courses = new ArrayList<>();
-        while (rs.next()){
+        while (rs.next()) {
             Course course = new Course();
             // course.setTeacherNo(rs.getLong("teacherID"));
             course.setCourseNo(rs.getLong("CourseNo"));
@@ -131,41 +130,23 @@ public class BLO {
         dao.connect();
         dao.deleteCourse(courseId);
     }
+
     public void editCourse(Course course, Long teacherId) throws SQLException, IOException, ClassNotFoundException {
         DAO dao = new DAO();
         dao.connect();
         dao.updateCourse(course, teacherId);
     }
-    public ArrayList<Course>  loadFacultyCourses(String faculty) throws SQLException, IOException, ClassNotFoundException {
-        DAO dao = new DAO();
-        dao.connect();
-        ResultSet rs =dao.selectFacultyCourses(faculty);
-        ArrayList<Course> courses = new ArrayList<>();
-        while (rs.next()){
-            Course course = new Course();
-            course.setCourseNo(rs.getLong("CourseNo"));
-            course.setTitle(rs.getString("title"));
-            course.setFaculty(Faculty.valueOf(rs.getString("Faculty")));
-            course.setTeacherName(rs.getString("LastName"));
-            course.setPoint(rs.getInt("Point"));
-            course.setdId(rs.getLong("Id"));
-            courses.add(course);
-
-        }
-        return courses;
-    }
 
     public ArrayList<Course> loadStudentCourses(Long studentId) throws SQLException, IOException, ClassNotFoundException {
         DAO dao = new DAO();
         dao.connect();
-        ResultSet rs =dao.selectStudentCourses(studentId);
+        ResultSet rs = dao.selectStudentCourses(studentId);
         ArrayList<Course> courses = new ArrayList<>();
-        while (rs.next()){
+        while (rs.next()) {
             Course course = new Course();
             course.setCourseNo(rs.getLong("CourseNo"));
             course.setTitle(rs.getString("Title"));
-            course.setFaculty(Faculty.valueOf(rs.getString("Faculty")));
-            course.setTeacherName(rs.getString("FirstName")+" "+rs.getString("LastName"));
+            course.setTeacherName(rs.getString("FirstName") + " " + rs.getString("LastName"));
             course.setPoint(rs.getInt("Point"));
             courses.add(course);
 
@@ -173,7 +154,7 @@ public class BLO {
         return courses;
     }
 
-    public void addCourseStudent(Long studentId, ArrayList<Integer> selectedCourse) throws SQLException, IOException, ClassNotFoundException {
+    public void addCourseStudent(Long studentId, ArrayList<Long> selectedCourse) throws SQLException, IOException, ClassNotFoundException {
         DAO dao = new DAO();
         dao.connect();
         dao.insertStudent_Course(studentId, selectedCourse);
@@ -183,8 +164,8 @@ public class BLO {
     public Teacher getTeacherbyId(long teacherID) throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Teacher> teachers = loadTeachers();
         Teacher teacher = new Teacher();
-        for (int i=0;i<teachers.size();i++){
-            if (teachers.get(i).getdId()==teacherID){
+        for (int i = 0; i < teachers.size(); i++) {
+            if (teachers.get(i).getdId() == teacherID) {
                 teacher = teachers.get(i);
             }
         }
@@ -194,8 +175,8 @@ public class BLO {
     public ArrayList<Course> loadTeacherCourses(Long teacherID) throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Course> teacherCourses = new ArrayList<>();
         ArrayList<Course> allCourses = loadCourses();
-        for (int i=0;i<allCourses.size();i++){
-            if (allCourses.get(i).getTeacher().getdId()==teacherID){
+        for (int i = 0; i < allCourses.size(); i++) {
+            if (allCourses.get(i).getTeacher().getdId() == teacherID) {
                 teacherCourses.add(allCourses.get(i));
             }
         }
@@ -218,5 +199,20 @@ public class BLO {
             person.setRole(rs.getInt("role"));
         }
         return person;
+    }
+
+    public ArrayList checkSelectedCourse(Long studentId, ArrayList selectedCourse) throws SQLException, IOException, ClassNotFoundException {
+        DAO db;
+        db = new DAO();
+        db.connect();
+        ResultSet rs = db.selectStudentCourses(studentId);
+       while (rs.next()){
+           for(int i=0;i<selectedCourse.size();i++) {
+               if (rs.getLong("Id_Education_Course")==selectedCourse.get(i)){
+                   selectedCourse.remove(selectedCourse.get(i));
+               }
+           }
+       }
+        return selectedCourse;
     }
 }

@@ -4,15 +4,9 @@ package com.mahan.biz;
  * Created by 921227 on 11/28/2015.
  */
 public class Teacher extends Person{
-    private Faculty faculty;
+
     private Position position;
     private Long teacherNo;
-    public Faculty getFaculty() {
-        return faculty;
-    }
-    public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
-    }
 
     public Position getPosition() {
         return position;

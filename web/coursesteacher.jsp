@@ -20,7 +20,6 @@
   <table class="table-my" style="width:100%" border="1">
     <tr>
       <th>Course ID</th>
-      <th>Faculty</th>
       <th>Teacher</th>
       <th>Point</th>
       <th></th>
@@ -29,7 +28,6 @@
     <c:forEach var="course" items="${teachercourses}">
       <tr>
         <td>${course.courseNo}</td>
-        <td>${course.faculty}</td>
         <td>${course.teacher.lastname}</td>
         <td>${course.point}</td>
         <td>

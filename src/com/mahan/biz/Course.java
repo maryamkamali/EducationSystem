@@ -6,7 +6,6 @@ package com.mahan.biz;
 public class Course {
     private Long courseNo;
     private int point;
-    private Faculty faculty;
     private String teacherName;
     private Teacher teacher;
     private Long dId;
@@ -26,14 +25,6 @@ public class Course {
 
     public void setPoint(int point) {
         this.point = point;
-    }
-
-    public Faculty getFaculty() {
-        return faculty;
-    }
-
-    public void setFaculty(Faculty faculty) {
-        this.faculty = faculty;
     }
 
     public String getTeacherName() {

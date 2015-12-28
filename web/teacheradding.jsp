@@ -63,16 +63,6 @@
                                         ${position}
                                 </option>
                             </c:forEach>
-                        </select>
-                        <label class="col-sm-3">Faculty</label>
-                        <select class="col-sm-3 form-control" name="faculty">
-
-                            <c:forEach var="faculty" items="${faculties}">
-                                <option value="${faculty}">
-                                        ${faculty}
-                                </option>
-                            </c:forEach>
-                        </select>
                     </div>
                     <label> Contact Information:</label>
                     <br><br>

@@ -25,7 +25,6 @@
       <th>National Number</th>
       <th>Birth Date</th>
       <th>Gender</th>
-      <th>Faculty</th>
       <th>Position</th>
       <th>Email</th>
       <th>Tel</th>
@@ -42,7 +41,6 @@
         <td>${teacher.nationalNo}</td>
         <td>${teacher.birthDate}</td>
         <td>${teacher.gender}</td>
-        <td>${teacher.faculty}</td>
         <td>${teacher.position}</td>
         <td>${teacher.email}</td>
         <td>${teacher.tel}</td>
@@ -68,11 +66,6 @@
     positions.add(Position.professor.toString());
     application.setAttribute("positions",positions);
 
-    ArrayList<String> faculties = new ArrayList<String>();
-    faculties.add(Faculty.Industrial.toString());
-    faculties.add(Faculty.Chemical.toString());
-    faculties.add(Faculty.Engineering.toString());
-    application.setAttribute("faculties",faculties);
   %>
 
   <a href="/teacheradding.jsp">

@@ -22,7 +22,6 @@
         <tr>
             <th>Course Number</th>
             <th>title</th>
-            <th>Faculty</th>
             <th>Teacher</th>
             <th></th>
         </tr>
@@ -30,7 +29,6 @@
             <tr>
                 <td>${course.courseNo}</td>
                 <td>${course.title}</td>
-                <td>${course.faculty}</td>
                 <td>${course.teacherName}</td>
                 <td>
                     <input type="checkbox" name="myTextEditBox" value="${course.dId}"
@@ -50,9 +48,8 @@
     <h3>Selected Courses</h3>
     <table class="table-my" style="width:100%" border="1">
         <tr>
-            <th>Course ID</th>
+            <th>Course Number</th>
             <th>title</th>
-            <th>Faculty</th>
             <th>Teacher</th>
             <th>Point</th>
         </tr>
@@ -60,7 +57,6 @@
             <tr>
                 <td>${selectedCourse.courseNo}</td>
                 <td>${selectedCourse.title}</td>
-                <td>${selectedCourse.faculty}</td>
                 <td>${selectedCourse.teacherName}</td>
                 <td>${selectedCourse.point}</td>
 
