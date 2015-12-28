@@ -148,4 +148,11 @@ public class DAO {
         }
     }
 
+    public ResultSet getCourseStudents(Long courseID) throws SQLException {
+        String query = "SELECT * FROM [JavaTraining].[dbo].[Education_Student_Course] c where c.[Id_Education_Course] = '" + courseID + "'";
+        java.sql.Statement stm = con.createStatement();
+        ResultSet rs = stm.executeQuery(query);
+        return rs;
+    }
+
 }

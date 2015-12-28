@@ -7,6 +7,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -103,10 +104,11 @@ public class CourseController extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }    public void teacherCourses(){
+    }
+    public void teacherCourses(){
         HttpSession session = req.getSession();
         BLO blo = new BLO();
-        Long a = Long.valueOf(13);
+        Long a = Long.valueOf(15);
         try {
             session.setAttribute("teachercourses",blo.loadTeacherCourses(a));
             RequestDispatcher rd = req.getRequestDispatcher("/coursesteacher.jsp");
@@ -116,7 +118,26 @@ public class CourseController extends BaseController {
         }
     }
 
-    public void setGrade(){
-        System.out.println("HI");
+    public void setGrade()  {
+        Long courseId = (Long) req.getAttribute("id");
+        HttpSession session = req.getSession();
+        BLO blo = new BLO();
+        try {
+            session.setAttribute("coursestudents",blo.loadCourseStudents(courseId));
+            RequestDispatcher rd = req.getRequestDispatcher("/coursesteacher.jsp");
+            rd.forward(req,res);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveGrades(){
+
     }
 }

@@ -20,7 +20,7 @@
   <table class="table-my" style="width:100%" border="1">
     <tr>
       <th>Course ID</th>
-      <th>Faculty</th>
+      <th>Course Name</th>
       <th>Teacher</th>
       <th>Point</th>
       <th></th>
@@ -29,17 +29,46 @@
     <c:forEach var="course" items="${teachercourses}">
       <tr>
         <td>${course.courseNo}</td>
-        <td>${course.faculty}</td>
+        <td>${course.title}</td>
         <td>${course.teacher.lastname}</td>
         <td>${course.point}</td>
         <td>
-          <a href="/course/setGrade/${course.courseNo}"> <button>Grade</button></a>
+          <a href="/course/setGrade/${course.dId}"> <button>Grade</button></a>
 
         </td>
       </tr>
     </c:forEach>
 
   </table>
+
+
+
+  <%--<form action="">--%>
+    <%--<c:forEach var="student" items="${coursestudents}">--%>
+        <%--${student.key.firstname}--%>
+      <%--${student.value}--%>
+    <%--</c:forEach>--%>
+  <%--</form>--%>
+${coursestudents[0].key}
+  ${coursestudents[0].value}
+
+<%--<c:choose>--%>
+    <%--<c:when test="${coursestudents[0].value == '0'}">--%>
+      <%--<form action="/course/savegrades">--%>
+        <%--<c:forEach var="student" items="${coursestudents}">--%>
+          <%--<label>${student.key.studentNo}</label>--%>
+          <%--<input name="${student.key.firstname}" type="text">--%>
+        <%--</c:forEach>--%>
+      <%--</form>--%>
+    <%--</c:when>--%>
+    <%--<c:otherwise>--%>
+      <%--<c:forEach var="student" items="${coursestudents}">--%>
+         <%--${student.key.firstname}--%>
+        <%--${student.value}--%>
+      <%--</c:forEach>--%>
+    <%--</c:otherwise>--%>
+  <%--</c:choose>--%>
+<%--Inja moondam nemifahme ghablan nomre dade ya na--%>
 </div>
 </body>
 </html>
