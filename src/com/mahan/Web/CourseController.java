@@ -25,7 +25,7 @@ public class CourseController extends BaseController {
             e.printStackTrace();
         }
     }
-
+//test
     public void edit() {
         HttpSession session = req.getSession();
         try {
