@@ -137,10 +137,10 @@ public class BLO {
         dao.updateCourse(course, teacherId);
     }
 
-    public ArrayList<Course> loadStudentCourses(Long studentId) throws SQLException, IOException, ClassNotFoundException {
+    public Student loadStudentCourses(Student student) throws SQLException, IOException, ClassNotFoundException {
         DAO dao = new DAO();
         dao.connect();
-        ResultSet rs = dao.selectStudentCourses(studentId);
+        ResultSet rs = dao.selectStudentCourses(student.getdId());
         ArrayList<Course> courses = new ArrayList<>();
         while (rs.next()) {
             Course course = new Course();
@@ -148,10 +148,12 @@ public class BLO {
             course.setTitle(rs.getString("Title"));
             course.setTeacherName(rs.getString("FirstName") + " " + rs.getString("LastName"));
             course.setPoint(rs.getInt("Point"));
+            course.setGrade(rs.getFloat("Grade"));
             courses.add(course);
 
         }
-        return courses;
+        student.setCourses(courses);
+        return student;
     }
 
     public void addCourseStudent(Long studentId, ArrayList<Long> selectedCourse) throws SQLException, IOException, ClassNotFoundException {

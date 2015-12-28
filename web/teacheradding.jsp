@@ -53,8 +53,6 @@
                     <div class="form-group">
                         <label for="tacherID" class="col-sm-3">Teacher Number</label>
                         <input type="text" id="tacherID" class="col-sm-3" name="teacherNo">
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-3">Position</label>
                         <select class="col-sm-3 form-control" name="position">
 
@@ -63,10 +61,10 @@
                                         ${position}
                                 </option>
                             </c:forEach>
+                        </select>
                     </div>
                     <label> Contact Information:</label>
                     <br><br>
-
                     <div class="form-group">
                         <label for="email" class="col-sm-3">Email</label>
                         <input type="text" id="email" class="col-sm-3" name="email">

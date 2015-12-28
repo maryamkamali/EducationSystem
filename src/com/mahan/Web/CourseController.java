@@ -2,6 +2,7 @@ package com.mahan.Web;
 
 import com.mahan.biz.BLO;
 import com.mahan.biz.Course;
+import com.mahan.biz.Student;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,8 +21,9 @@ public class CourseController extends BaseController {
         try {
             session.setAttribute("courses", blo.loadCourses());
             if(req.getSession().getAttribute("role_course").equals("student")){
-                Long studentId = 2L;
-                session.setAttribute("selectedCourses", blo.loadStudentCourses(studentId));
+                Student student=new Student();
+                student.setdId(2L);
+                session.setAttribute("selectedCourses", blo.loadStudentCourses(student).getCourses());
                 RequestDispatcher rd = req.getRequestDispatcher("/studentcourse.jsp");
                 rd.forward(req, res);
             }
@@ -81,7 +83,9 @@ public class CourseController extends BaseController {
     public void showStudentCourse() {
         HttpSession session = req.getSession();
         BLO blo = new BLO();
-        Long studentId = 2L;
+        Student student=new Student();
+        student.setdId(2L);
+
         try {
             //todo
             String[] selectedCourse_String = req.getParameterValues("myTextEditBox");
@@ -91,10 +95,11 @@ public class CourseController extends BaseController {
                 selectedCourse.add(Long.parseLong(selectedCourse_String[i]));
             }
 
-              selectedCourse=  blo.checkSelectedCourse(studentId, selectedCourse);
-            blo.addCourseStudent(studentId, selectedCourse);
+              selectedCourse=  blo.checkSelectedCourse(student.getdId(), selectedCourse);
+            blo.addCourseStudent(student.getdId(), selectedCourse);
 
-            session.setAttribute("selectedCourses", blo.loadStudentCourses(studentId));}
+            session.setAttribute("selectedCourses",blo.loadStudentCourses(student).getCourses());
+            }
             RequestDispatcher rd = req.getRequestDispatcher("/studentcourse.jsp");
             rd.forward(req, res);
         } catch (Exception e) {

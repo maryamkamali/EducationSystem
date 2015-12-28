@@ -10,7 +10,7 @@ public class Course {
     private Teacher teacher;
     private Long dId;
     private String title;
-
+private Float grade;
     public Long getCourseNo() {
         return courseNo;
     }
@@ -56,5 +56,13 @@ public class Course {
 
     public void setdId(Long id) {
         dId = id;
+    }
+
+    public Float getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Float grade) {
+        this.grade = grade;
     }
 }

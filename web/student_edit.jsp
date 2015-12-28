@@ -67,8 +67,8 @@
                         <input type="text" id="studentid" value="${students[studentOrder].studentNo}" class="col-sm-4" name="studentNo">
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2">Field of Study</label>
-                        <select class="col-sm-4" value="${students[studentOrder].fieldsOfStudy}" name="fieldsOfStudy">
+                        <label class="col-sm-3">Field of Study</label>
+                        <select class="col-sm-3 form-control" value="${students[studentOrder].fieldsOfStudy}" name="fieldsOfStudy">
 
                             <c:forEach var="field" items="${fields}">
                                 <option value="${field}">
@@ -76,8 +76,8 @@
                                 </option>
                             </c:forEach>
                         </select>
-                        <label class="col-sm-2">Degree</label>
-                        <select class="col-sm-4"  value="${students[studentOrder].degree}" name="degree">
+                        <label class="col-sm-3">Degree</label>
+                        <select class="col-sm-3 form-control"  value="${students[studentOrder].degree}" name="degree">
 
                             <c:forEach var="degree" items="${degrees}">
                                 <option value="${degree}">
@@ -111,6 +111,6 @@
     $('label').addClass('control-label');
     $('select').css('width','25%');
     $('label').css('text-align','left');
-    $('select').addClass('form-control');
+   $('select').addClass('form-control');
 </script>
 </html>
