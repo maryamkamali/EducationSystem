@@ -12,7 +12,7 @@
 
 .table-my td, .table-my th {
     border: 2px solid rgba(66, 111, 72, 0.42);;
-    text-align: left;
+    text-align: center;
     width: 100%;
     padding: 5px;
     /*padding: 8px;*/
@@ -72,5 +72,5 @@ label.control-label {
     text-decoration: none;
 }
 .top-admin{
-    margin-top: 20%;
+    margin-top: 10%;
 }
