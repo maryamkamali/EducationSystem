@@ -7,7 +7,10 @@ import com.mahan.biz.Student;
 import com.mahan.biz.Teacher;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -34,8 +37,8 @@ public class DAO {
 
     public void insertTeacher(Teacher teacher) throws SQLException {
         String query = "insert into [JavaTraining].[dbo].[Education_Teacher]  values('" + 2 + "','"
-                + teacher.getFirstname() + "','" + teacher.getLastname() + "'," + teacher.getNationalNo() + ",'" + teacher.getBirthDate() + "','" + teacher.getGender() + "','" + teacher.getAddress() + "','" + teacher.getEmail() + "','" + teacher.getTel() + "',"
-                + teacher.getTeacherNo() + ",'" + teacher.getPosition() + "',)";
+                + teacher.getFirstname() + "','" + teacher.getLastname() + "'," + teacher.getNationalNo() + ",'" + teacher.getBirthDate() + "','" + teacher.getGender() + "','" + teacher.getAddress() + "','" + teacher.getEmail() + "','" + teacher.getTel() + "'," + teacher.getTeacherNo() + ",'" + teacher.getFaculty() + "','"
+                + teacher.getPosition() + "',)";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
     }
@@ -108,19 +111,27 @@ public class DAO {
     public void updateTeacher(Teacher teacher) throws SQLException {
         String query = "UPDATE [JavaTraining].[dbo].[Education_Teacher] SET [FirstName]='" + teacher.getFirstname() + "',[LastName]='" + teacher.getLastname()
                 + "' ,[NationalNo]=" + teacher.getNationalNo() + ",[BirthDate]='" + teacher.getBirthDate()
-                + "',[Gender]='" + teacher.getGender()  + "',[Position]='" + teacher.getPosition() + "',[Email]='" + teacher.getEmail() + "',[Address]='" + teacher.getAddress() + "',[Tel]='" + teacher.getTel() + "'where TeacherNo = '" + teacher.getTeacherNo() + "'";
+                + "',[Gender]='" + teacher.getGender() + "',[Faculty]='" + teacher.getFaculty() + "',[Position]='" + teacher.getPosition()
+                + "',[Email]='" + teacher.getEmail() + "',[Address]='" + teacher.getAddress() + "',[Tel]='" + teacher.getTel() + "'where TeacherNo = '" + teacher.getTeacherNo() + "'";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
     }
 
     public void updateCourse(Course course, Long teacherId) throws SQLException {
 
-        String query = "UPDATE [dbo].[Education_Course] SET [Point]='" + course.getPoint()
+        String query = "UPDATE [dbo].[Education_Course] SET [Faculty]='" + null + "',[Point]='" + course.getPoint()
                 + "' ,[CourseNo]=" + course.getCourseNo() + ",[Id_Education_Teacher]='" + teacherId + "',[Title]='" + course.getTitle() + "' where CourseNo='" + course.getCourseNo() + "'";
         java.sql.Statement stm = con.createStatement();
         stm.executeUpdate(query);
     }
 
+    //todo id haye 2 jadval amade
+    public ResultSet selectFacultyCourses(String faculty) throws SQLException {
+        String query = "select * from [JavaTraining].[dbo].[Education_Course] c join [dbo].[Education_Teacher] t on c.Id_Education_Teacher=t.Id where c.[Faculty]='" + faculty + "'";
+        java.sql.Statement stm = con.createStatement();
+        ResultSet rs = stm.executeQuery(query);
+        return rs;
+    }
 
     public ResultSet selectStudentCourses(Long studentId) throws SQLException {
         String query = "select * from [JavaTraining].[dbo].[Education_Student_Course] sc join [dbo].[Education_Course] c on sc.Id_Education_Course=c.Id join [dbo].[Education_Teacher] t on c.Id_Education_Teacher=t.Id where [Id_Education_Student]='" + studentId + "'";
@@ -129,7 +140,7 @@ public class DAO {
         return rs;
     }
 
-    public void insertStudent_Course(Long studentId, ArrayList<Long> selectedCourse) throws SQLException {
+    public void insertStudent_Course(Long studentId, ArrayList<Integer> selectedCourse) throws SQLException {
         for (int i = 0; i < selectedCourse.size(); i++) {
             String query = "insert into [JavaTraining].[dbo].[Education_Student_Course]  values('" + studentId + "','" + selectedCourse.get(i) + "','" + 0 + "')";
             java.sql.Statement stm = con.createStatement();
@@ -145,4 +156,11 @@ public class DAO {
         return resultSet;
 
     }
+    public ResultSet getCourseStudents(Long courseID) throws SQLException {
+        String query = "SELECT * FROM [JavaTraining].[dbo].[Education_Student_Course] c where c.[Id_Education_Course] = '" + courseID + "'";
+        java.sql.Statement stm = con.createStatement();
+        ResultSet rs = stm.executeQuery(query);
+        return rs;
+    }
+
 }
