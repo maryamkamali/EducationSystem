@@ -78,7 +78,7 @@ public class StudentController extends BaseController {
         Student student = new Student();
         student.setdId(2L);
         try {
-            req.getSession().setAttribute("selectedCourses",blo.loadStudentCourses(student).getCourses());
+            //req.getSession().setAttribute("selectedCourses",blo.loadStudentCourses(student).getCourses());
             RequestDispatcher rd = req.getRequestDispatcher("/transcript.jsp");
             rd.forward(req, res);
         } catch (Exception e) {

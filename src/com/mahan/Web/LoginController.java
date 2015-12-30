@@ -20,7 +20,7 @@ public class LoginController extends HttpServlet {
         HttpSession session = request.getSession();
 
         try {
-            Person person = myBLO.createUser(request.getParameter("userName"));
+            Person person = myBLO.findUser(request.getParameter("userName"));
             session.setAttribute("user", person);
             if ((person != null) && (person.getPassword().equals(request.getParameter("password")))) {
               switch (person.getRole()){

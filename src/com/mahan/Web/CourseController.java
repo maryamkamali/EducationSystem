@@ -1,7 +1,6 @@
 package com.mahan.Web;
 
-import com.mahan.biz.BLO;
-import com.mahan.biz.Course;
+import com.mahan.biz.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,8 +18,14 @@ public class CourseController extends BaseController {
         BLO blo = new BLO();
         try {
             session.setAttribute("courses", blo.loadCourses());
-            RequestDispatcher rd = req.getRequestDispatcher("/course.jsp");
-            rd.forward(req, res);
+            if (session.getAttribute("role_course").equals("admin")) {
+                RequestDispatcher rd = req.getRequestDispatcher("/course.jsp");
+                rd.forward(req, res);
+            }
+            if (session.getAttribute("role_course").equals("student")) {
+                RequestDispatcher rd = req.getRequestDispatcher("/studentcourse.jsp");
+                rd.forward(req, res);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -70,53 +75,44 @@ public class CourseController extends BaseController {
         }
     }
 
-    public void showFacultyCourse() {
-        HttpSession session = req.getSession();
-        BLO blo = new BLO();
-        String faculty = "Industrial";
-
-        try {
-            session.setAttribute("courses", blo.loadFacultyCourses(faculty));
-            RequestDispatcher rd = req.getRequestDispatcher("/studentcourse.jsp");
-            rd.forward(req, res);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public void showStudentCourse() {
         HttpSession session = req.getSession();
         BLO blo = new BLO();
-        Long studentId = 2L;
         try {
-            //todo
+            Student student = blo.findStudent(((Person)session.getAttribute("user")).getdId());
             String[] selectedCourse_String = req.getParameterValues("myTextEditBox");
-            ArrayList selectedCourse = new ArrayList();
+            ArrayList<Long> selectedCourse = new ArrayList<>();
             for (int i = 0; i < selectedCourse_String.length; i++) {
-                selectedCourse.add(Integer.parseInt(selectedCourse_String[i]));
+                selectedCourse.add(Long.parseLong(selectedCourse_String[i]));
             }
-            blo.addCourseStudent(studentId, selectedCourse);
+            selectedCourse = blo.checkSelectedCourse(student.getdId(), selectedCourse);
+            blo.addCourseStudent(student.getdId(), selectedCourse);
 
-            session.setAttribute("selectedCourses", blo.loadStudentCourses(studentId));
+            session.setAttribute("selectedCourses", blo.loadStudentCourses(student).getCourses());
             RequestDispatcher rd = req.getRequestDispatcher("/studentcourse.jsp");
             rd.forward(req, res);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }    public void teacherCourses(){
+    }
+
+
+    public void teacherCourses() {
         HttpSession session = req.getSession();
         BLO blo = new BLO();
-        Long a = Long.valueOf(13);
+
         try {
-            session.setAttribute("teachercourses",blo.loadTeacherCourses(a));
+            Teacher teacher = blo.findTeacher(((Person) session.getAttribute("user")).getdId());
+            session.setAttribute("teachercourses", blo.loadTeacherCourses(teacher.getdId()));
             RequestDispatcher rd = req.getRequestDispatcher("/coursesteacher.jsp");
-            rd.forward(req,res);
+            rd.forward(req, res);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void setGrade(){
+    public void setGrade() {
         System.out.println("HI");
     }
 }

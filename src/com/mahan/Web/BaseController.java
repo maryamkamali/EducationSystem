@@ -39,7 +39,8 @@ public class BaseController extends HttpServlet {
         String action = null;
         if (address.length == 4) {
             Long id = Long.parseLong(address[3]);
-            req.setAttribute("id", id);
+          req.setAttribute("id", id);
+            req.getSession().setAttribute("Id",req.getAttribute("id"));
             action = address[2];
         } else if (address.length == 3) {
             action = address[2];

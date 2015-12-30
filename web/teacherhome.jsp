@@ -24,4 +24,5 @@
   </div>
   </div>
 </body>
+<c:set var="role_course" scope="session" value="teacher"></c:set>
 </html>

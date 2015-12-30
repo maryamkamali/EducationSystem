@@ -26,7 +26,7 @@ public class ObjectAdder extends HttpServlet {
         try {
             if (request.getAttribute("currentstudent") != null) {
                 if(session.getAttribute("edit")==true) {
-                    blo.editPerson((Student) request.getAttribute("currentstudent"));
+                    blo.editPerson((Student) request.getAttribute("currentstudent"),(Long)request.getSession().getAttribute("Id"));
                 }
                 else {
                     blo.createPerson((Student) request.getAttribute("currentstudent"));
@@ -35,7 +35,7 @@ public class ObjectAdder extends HttpServlet {
                 rd.forward(request,response);
             } else if (request.getAttribute("teacher") != null) {
                 if(session.getAttribute("edit")==true) {
-                    blo.editPerson((Teacher) request.getAttribute("teacher"));
+                    blo.editPerson((Teacher) request.getAttribute("teacher"),(Long)request.getSession().getAttribute("Id"));
                 }
                 else {
                     blo.createPerson((Teacher) request.getAttribute("teacher"));
@@ -57,7 +57,7 @@ public class ObjectAdder extends HttpServlet {
                     blo.createCourse(course, teacherId);
                 }
                 else {
-                    blo.editCourse(course,teacherId);
+                    blo.editCourse(course,teacherId,(Long)request.getSession().getAttribute("Id"));
                 }
                 RequestDispatcher rd = request.getRequestDispatcher("/course/showList");
                 rd.forward(request,response);
