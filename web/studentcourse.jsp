@@ -36,7 +36,6 @@
                 </td>
             </tr>
         </c:forEach>
-
     </table>
     <button type="submit">Submit</button>
     </form>

@@ -12,63 +12,73 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title></title>
+    <title></title>
 </head>
 <body>
 <div class="container">
-  <jsp:include page="header.jsp"></jsp:include>
-  <table class="table-my" style="width:100%" border="1">
-    <tr>
-      <th>Course ID</th>
-      <th>Course Name</th>
-      <th>Teacher</th>
-      <th>Point</th>
-      <th></th>
+    <jsp:include page="header.jsp"></jsp:include>
+    <table class="table-my" style="width:100%" border="1">
+        <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Teacher</th>
+            <th>Point</th>
+            <th></th>
 
-    </tr>
-    <c:forEach var="course" items="${teachercourses}">
-      <tr>
-        <td>${course.courseNo}</td>
-        <td>${course.title}</td>
-        <td>${course.teacher.lastname}</td>
-        <td>${course.point}</td>
-        <td>
-          <a href="/course/setGrade/${course.courseNo}"> <button>Grade</button></a>
+        </tr>
+        <c:forEach var="course" items="${teachercourses}">
+            <tr>
+                <td>${course.courseNo}</td>
+                <td>${course.title}</td>
+                <td>${course.teacher.lastname}</td>
+                <td>${course.point}</td>
+                <td>
+                    <a href="/course/showStudents/${course.dId}">
+                        <button>Grade</button>
+                    </a>
 
-        </td>
-      </tr>
-    </c:forEach>
+                </td>
+            </tr>
+        </c:forEach>
 
-  </table>
-
-
-
-  <%--<form action="">--%>
-    <%--<c:forEach var="student" items="${coursestudents}">--%>
-        <%--${student.key.firstname}--%>
-      <%--${student.value}--%>
-    <%--</c:forEach>--%>
-  <%--</form>--%>
-${coursestudents[0].key}
-  ${coursestudents[0].value}
-
-<%--<c:choose>--%>
-    <%--<c:when test="${coursestudents[0].value == '0'}">--%>
-      <%--<form action="/course/savegrades">--%>
-        <%--<c:forEach var="student" items="${coursestudents}">--%>
-          <%--<label>${student.key.studentNo}</label>--%>
-          <%--<input name="${student.key.firstname}" type="text">--%>
-        <%--</c:forEach>--%>
-      <%--</form>--%>
-    <%--</c:when>--%>
-    <%--<c:otherwise>--%>
-      <%--<c:forEach var="student" items="${coursestudents}">--%>
-         <%--${student.key.firstname}--%>
-        <%--${student.value}--%>
-      <%--</c:forEach>--%>
-    <%--</c:otherwise>--%>
-  <%--</c:choose>--%>
-<%--Inja moondam nemifahme ghablan nomre dade ya na--%>
+    </table>
 </div>
+<div class="container">
+    <h2>Students for selected course:</h2>
+
+    <table class="table-my">
+        <thead>
+        <tr>
+            <th>Student NO</th>
+            <th>Name</th>
+            <th>Feild</th>
+            <th>Degree</th>
+            <th>Grade</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="student" items="${studentsCourse}">
+            <tr id="${student.dId}">
+                <td>${student.studentNo}</td>
+                <td>${student.firstname} ${student.lastname}</td>
+                <td>${student.fieldsOfStudy}</td>
+                <td>${student.degree}</td>
+                <td><input name="grade"  type="text"></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
+<script>
+
+    $('input[name=grade]').change(function(){
+       var Id= $(this).parent().parent().attr("id");
+        var grade = $(this).val();
+
+        $.post("/course/setGrade",{id : 47 , grade: grade},function(data){
+            alert("ok");
+        })
+    });
+</script>
 </body>
 </html>

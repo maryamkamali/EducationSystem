@@ -147,7 +147,7 @@ public class DAO {
         stm.executeUpdate(query);
     }
 
-    public void updateCourse(Course course,Long teacherId, Long editId ) throws SQLException {
+    public void updateCourse(Course course, Long teacherId, Long editId) throws SQLException {
 
         String query = "UPDATE [dbo].[Education_Course] SET [Point]='" + course.getPoint()
                 + "' ,[CourseNo]=" + course.getCourseNo() + ",[Id_Education_Teacher]='" + teacherId + "',[Title]='" + course.getTitle() + "' where [Id]='" + editId + "'";
@@ -205,5 +205,21 @@ public class DAO {
         java.sql.Statement stm = con.createStatement();
         ResultSet rs = stm.executeQuery(query);
         return rs;
+    }
+
+    public ResultSet selectStudentsbyCourse(Long courseId) throws SQLException {
+        String query = "SELECT distinct s.Id as studentId, sc.Id, s.StudentNo, s.FirstName, s.LastName, s.Field, s.Degree, sc.Grade FROM [JavaTraining].[dbo].[Education_Student_Course] sc left join [dbo].[Education_Student] s on sc.Id_Education_Student=s.[Id]  where sc.Id_Education_Course='" + courseId + "' order by s.LastName";
+        java.sql.Statement stm = con.createStatement();
+        ResultSet rs = stm.executeQuery(query);
+        return rs;
+    }
+
+
+
+    public void updateGrade(Long id, float grade) throws SQLException {
+
+        String query = "UPDATE [dbo].[Education_Student_Course] SET Grade =' "+grade+"' where Id ='"+id+"'";
+        java.sql.Statement stm = con.createStatement();
+        stm.executeUpdate(query);
     }
 }

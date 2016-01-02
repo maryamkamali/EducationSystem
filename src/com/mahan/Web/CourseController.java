@@ -6,6 +6,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -80,7 +81,7 @@ public class CourseController extends BaseController {
         HttpSession session = req.getSession();
         BLO blo = new BLO();
         try {
-            Student student = blo.findStudent(((Person)session.getAttribute("user")).getdId());
+            Student student = blo.findStudent(((Person) session.getAttribute("user")).getdId());
             String[] selectedCourse_String = req.getParameterValues("myTextEditBox");
             ArrayList<Long> selectedCourse = new ArrayList<>();
             for (int i = 0; i < selectedCourse_String.length; i++) {
@@ -112,7 +113,32 @@ public class CourseController extends BaseController {
         }
     }
 
+    public void showStudents() {
+        HttpSession session = req.getSession();
+        BLO blo = new BLO();
+        Long courseId=(Long)req.getAttribute("id");
+        try {
+            session.setAttribute("studentsCourse",blo.getStudentsbyCourseId(courseId));
+            RequestDispatcher rd = req.getRequestDispatcher("/coursesteacher.jsp");
+            rd.forward(req, res);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void setGrade() {
-        System.out.println("HI");
+
+        BLO blo = new BLO();
+        Long id = Long.parseLong( req.getParameter("id"));
+        float grade = Float.parseFloat(req.getParameter("grade"));
+        try {
+            blo.setGrade(id,grade);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
