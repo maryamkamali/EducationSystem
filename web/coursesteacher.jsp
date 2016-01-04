@@ -58,12 +58,18 @@
         </thead>
         <tbody>
         <c:forEach var="student" items="${studentsCourse}">
-            <tr id="${student.dId}">
-                <td>${student.studentNo}</td>
-                <td>${student.firstname} ${student.lastname}</td>
-                <td>${student.fieldsOfStudy}</td>
-                <td>${student.degree}</td>
-                <td><input name="grade"  type="text"></td>
+            <tr id="${student.key}">
+                <td>${student.value.studentNo}</td>
+                <td>${student.value.firstname} ${student.value.lastname}</td>
+                <td>${student.value.fieldsOfStudy}</td>
+                <td>${student.value.degree}</td>
+                <td>
+                    <c:if test="${student.value.courses[0].grade ne 0}">
+                        ${student.value.courses[0].grade}
+                    </c:if>
+                    <c:if test="${student.value.courses[0].grade eq 0}">
+                        <input name="grade"  type="text">
+                    </c:if> </td>
             </tr>
         </c:forEach>
         </tbody>
@@ -72,11 +78,13 @@
 <script>
 
     $('input[name=grade]').change(function(){
+        var input=$(this);
        var Id= $(this).parent().parent().attr("id");
         var grade = $(this).val();
 
-        $.post("/course/setGrade",{id : 47 , grade: grade},function(data){
-            alert("ok");
+        $.post("/course/setGrade",{id : Id , grade: grade},function(data){
+            input.parent().html(grade);
+
         })
     });
 </script>

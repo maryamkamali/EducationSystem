@@ -104,7 +104,7 @@ public class CourseController extends BaseController {
         BLO blo = new BLO();
 
         try {
-            Teacher teacher = blo.findTeacher(((Person) session.getAttribute("user")).getdId());
+            Teacher teacher = blo.findTeacherbyUserId(((Person) session.getAttribute("user")).getdId());
             session.setAttribute("teachercourses", blo.loadTeacherCourses(teacher.getdId()));
             RequestDispatcher rd = req.getRequestDispatcher("/coursesteacher.jsp");
             rd.forward(req, res);

@@ -42,10 +42,12 @@ public class BaseController extends HttpServlet {
           req.setAttribute("id", id);
             req.getSession().setAttribute("Id",req.getAttribute("id"));
             action = address[2];
-        } else if (address.length == 3) {
+        }
+        else if (address.length == 3) {
             action = address[2];
-        } else if (address.length == 2) {
-                action = "showList";
+        }
+        else if (address.length == 2) {
+                action = address[1];
         }
         try {
 

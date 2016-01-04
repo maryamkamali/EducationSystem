@@ -17,6 +17,8 @@
 <a href="/adminhome.jsp">
   <button>Home</button>
 </a>
-
+<a href="/logout">
+  <button>Logout</button>
+</a>
 </body>
 </html>

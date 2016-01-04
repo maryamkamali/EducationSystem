@@ -117,8 +117,8 @@ public class DAO {
         stm.executeUpdate(query);
     }
 
-    public ResultSet selectTeacher(Long teacherId) throws SQLException {
-        String query = "SELECT * FROM [JavaTraining].[dbo].[Education_Teacher] where [Id]='" + teacherId + "'";
+    public ResultSet selectTeacher(Long userId) throws SQLException {
+        String query = "SELECT * FROM [JavaTraining].[dbo].[Education_Teacher] where [Id_Education_User]='" + userId + "'";
         java.sql.Statement stm = con.createStatement();
         ResultSet rs = stm.executeQuery(query);
         return rs;

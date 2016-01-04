@@ -56,4 +56,12 @@
         <servlet-name>myErrorHandler</servlet-name>
         <url-pattern>/ErrorHandler</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>myLogoutController</servlet-name>
+        <servlet-class>com.mahan.Web.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myLogoutController</servlet-name>
+        <url-pattern>/logout/*</url-pattern>
+    </servlet-mapping>
 </web-app>

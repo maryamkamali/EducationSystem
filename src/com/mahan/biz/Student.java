@@ -9,7 +9,8 @@ public class Student extends Person {
     private Long studentNo;
     private FieldsOfStudy fieldsOfStudy;
     private Degree degree;
-private ArrayList<Course> courses;
+    private ArrayList<Course> courses;
+
     public FieldsOfStudy getFieldsOfStudy() {
         return fieldsOfStudy;
     }
