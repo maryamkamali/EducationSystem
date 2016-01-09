@@ -13,12 +13,16 @@
   <link rel="stylesheet" href="/assets/css/styles.css" media="all" rel="stylesheet" type="text/css"/>
   <script src="/assets/js/jquery-2.1.4.js"></script>
 </head>
+<div style=" height: 100px;">
 <body>
+
 <a href="/adminhome.jsp">
   <button>Home</button>
 </a>
 <a href="/logout">
   <button>Logout</button>
 </a>
+
 </body>
+</div>
 </html>

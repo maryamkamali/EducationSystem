@@ -14,17 +14,17 @@
 <body>
 <c:choose>
     <c:when test="${param.identifier=='student'}">
-        <jsp:useBean id="currentstudent" class="com.mahan.biz.Student" scope="request">
+        <jsp:useBean id="currentstudent" class="com.mahan.UI.Model.Student" scope="request">
             <jsp:setProperty name="currentstudent" property="*"/>
         </jsp:useBean>
     </c:when>
     <c:when test="${param.identifier=='teacher'}">
-        <jsp:useBean id="teacher" class="com.mahan.biz.Teacher" scope="request">
+        <jsp:useBean id="teacher" class="com.mahan.UI.Model.Teacher" scope="request">
             <jsp:setProperty name="teacher" property="*"></jsp:setProperty>
         </jsp:useBean>
     </c:when>
     <c:when test="${param.identifier=='course'}">
-        <jsp:useBean id="course" class="com.mahan.biz.Course" scope="request">
+        <jsp:useBean id="course" class="com.mahan.UI.Model.Course" scope="request">
             <jsp:setProperty name="course" property="*"></jsp:setProperty>
         </jsp:useBean>
     </c:when>

@@ -15,7 +15,7 @@
 <div class="container top-admin">
   <div class="row">
     <div class="col-md-offset-4 col-md-4">
-      <a href="/course/teacherCourses/">
+      <a href="/teacher/showCourses/">
         <button class="btn-my">
           Set Grades
         </button>

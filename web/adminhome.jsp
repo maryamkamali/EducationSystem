@@ -18,7 +18,7 @@
 <div class="container top-admin">
     <div class="row">
         <div class="col-md-offset-4 col-md-4">
-            <a href="/student">
+            <a href="admin/student/showList">
                 <button class="btn-my">
                     Manage Students
                 </button>
@@ -27,7 +27,7 @@
     </div>
     <div class="row">
         <div class="col-md-offset-4 col-md-4">
-            <a href="/teacher">
+            <a href="admin/teacher/showList">
                 <button class="btn-my">
                     Manage Teachers
                 </button>
@@ -36,7 +36,7 @@
     </div>
     <div class="row">
         <div class="col-md-offset-4 col-md-4">
-            <a href="/course">
+            <a href="admin/course/showList">
                 <button class="btn-my">
                     Manage Courses
                 </button>

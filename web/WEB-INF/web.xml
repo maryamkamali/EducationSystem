@@ -8,7 +8,7 @@
     </welcome-file-list>
     <servlet>
         <servlet-name>myObjectAdder</servlet-name>
-        <servlet-class>com.mahan.Web.ObjectAdder</servlet-class>
+        <servlet-class>com.mahan.UI.Controller.ObjectAdder</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>myObjectAdder</servlet-name>
@@ -17,32 +17,43 @@
     
     <servlet>
         <servlet-name>myStudent</servlet-name>
-        <servlet-class>com.mahan.Web.StudentController</servlet-class>
+        <servlet-class>com.mahan.UI.Controller.StudentController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>myStudent</servlet-name>
         <url-pattern>/student/*</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>myStudent</servlet-name>
+        <url-pattern>/admin/student/*</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>myTeacher</servlet-name>
-        <servlet-class>com.mahan.Web.TeacherController</servlet-class>
+        <servlet-class>com.mahan.UI.Controller.TeacherController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>myTeacher</servlet-name>
         <url-pattern>/teacher/*</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>myTeacher</servlet-name>
+        <url-pattern>/admin/teacher/*</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>myCourse</servlet-name>
-        <servlet-class>com.mahan.Web.CourseController</servlet-class>
+        <servlet-class>com.mahan.UI.Controller.CourseController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>myCourse</servlet-name>
         <url-pattern>/course/*</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>myCourse</servlet-name>
+        <url-pattern>/admin/course/*</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>myLoginController</servlet-name>
-        <servlet-class>com.mahan.Web.LoginController</servlet-class>
+        <servlet-class>com.mahan.UI.Controller.LoginController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>myLoginController</servlet-name>
@@ -50,7 +61,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>myErrorHandler</servlet-name>
-        <servlet-class>com.mahan.Web.ErrorHandler</servlet-class>
+        <servlet-class>com.mahan.UI.Controller.ErrorHandler</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>myErrorHandler</servlet-name>
@@ -58,7 +69,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>myLogoutController</servlet-name>
-        <servlet-class>com.mahan.Web.LogoutController</servlet-class>
+        <servlet-class>com.mahan.UI.Controller.LogoutController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>myLogoutController</servlet-name>
