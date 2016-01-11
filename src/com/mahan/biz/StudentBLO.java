@@ -2,6 +2,7 @@ package com.mahan.biz;
 
 import com.mahan.Data.StudentDAOImpl;
 import com.mahan.UI.Model.*;
+
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,21 +14,25 @@ import java.util.HashMap;
  */
 public class StudentBLO extends UserBLO {
     StudentDAOImpl dao = new StudentDAOImpl();
+
     public void createStudent(Student student) throws SQLException, IOException, ClassNotFoundException {
         StudentDAOImpl dao = new StudentDAOImpl();
         dao.connect();
         dao.insertUser(student.getFirstname(), "123", 1);
         dao.insertStudent(student);
     }
+
     public void editStudent(Student student, Long editId) throws SQLException, IOException, ClassNotFoundException {
         dao.connect();
-            dao.updateStudent(student, editId);
+        dao.updateStudent(student, editId);
 
     }
+
     public void deleteStudent(Long StudentId) throws SQLException, IOException, ClassNotFoundException {
         dao.connect();
         dao.deleteStudent(StudentId);
     }
+
     public Student findStudent(Long studentId) throws SQLException, IOException, ClassNotFoundException {
         dao.connect();
         Student student = new Student();
@@ -37,6 +42,7 @@ public class StudentBLO extends UserBLO {
         }
         return student;
     }
+
     public ArrayList<Student> loadStudents() throws SQLException, IOException, ClassNotFoundException {
         dao.connect();
         ResultSet rs = dao.selectStudents();
@@ -59,6 +65,7 @@ public class StudentBLO extends UserBLO {
         }
         return students;
     }
+
     public HashMap<Long, Student> getStudentsbyCourseId(Long courseId) throws SQLException, IOException, ClassNotFoundException {
         dao.connect();
         HashMap<Long, Student> courseStudent = new HashMap<>();
@@ -81,5 +88,14 @@ public class StudentBLO extends UserBLO {
             courseStudent.put(Id, student);
         }
         return courseStudent;
+    }
+
+    public float calculateAverage(ArrayList<Course> courses) {
+        float sum = 0;
+        for (int i = 0; i < courses.size(); i++) {
+            sum = sum + courses.get(i).getGrade();
+        }
+        float average = sum / courses.size();
+        return average;
     }
 }

@@ -1,6 +1,7 @@
 package com.mahan.UI.Controller;
 
 import com.mahan.UI.Model.Course;
+import com.mahan.UI.Model.Person;
 import com.mahan.biz.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -67,6 +68,25 @@ public class CourseController extends BaseController {
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showStudentsbyCourse() {
+        HttpSession session = req.getSession();
+        StudentBLO sBlo=new StudentBLO();
+        Long courseId = (Long) req.getAttribute("id");
+        try {
+            session.setAttribute("studentsCourse", sBlo.getStudentsbyCourseId(courseId));
+            if(((Person)session.getAttribute("user")).getRole()==0) {
+                RequestDispatcher rd = req.getRequestDispatcher("/courseslist.jsp");
+                rd.forward(req, res);
+            }
+            else
+            {
+                RequestDispatcher rd = req.getRequestDispatcher("/teachercourses.jsp");
+                rd.forward(req, res);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

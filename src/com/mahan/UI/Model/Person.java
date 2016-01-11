@@ -1,5 +1,8 @@
 package com.mahan.UI.Model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by 921227 on 11/11/2015.
  */
@@ -16,6 +19,8 @@ public class Person {
     private String userName;
     private String password;
     private int role;
+    protected HashMap<String, String> menueItems;
+    protected String homePageAddress;
 
     public String getBirthDate() {
         return birthDate;
@@ -111,5 +116,21 @@ public class Person {
 
     public void setRole(int role) {
         this.role = role;
+    }
+
+    public void setMenueItems(HashMap<String, String> menueItems) {
+        this.menueItems = menueItems;
+    }
+
+    public HashMap<String, String> getMenueItems() {
+        return menueItems;
+    }
+
+    public String getHomePageAddress() {
+        return homePageAddress;
+    }
+
+    public void setHomePageAddress(String homePageAddress) {
+        this.homePageAddress = homePageAddress;
     }
 }

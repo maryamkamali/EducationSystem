@@ -7,7 +7,7 @@
     /*font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;*/
     font-family: "Times New Roman", Georgia, Serif;
     border-collapse: collapse;
-    /*width: 100%;*/
+    width: 100%;
 }
 
 .table-my td, .table-my th {
@@ -73,4 +73,8 @@ label.control-label {
 }
 .top-admin{
     margin-top: 10%;
+}
+ul li{
+    display: inline;
+    list-style: none;
 }

@@ -33,8 +33,9 @@
 
             </tr>
         </c:forEach>
-
     </table>
+    <label>Average</label>
+    ${average}
 </div>
 </body>
 </html>

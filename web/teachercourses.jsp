@@ -33,7 +33,7 @@
                 <td>${course.teacher.lastname}</td>
                 <td>${course.point}</td>
                 <td>
-                    <a href="/teacher/showStudentsbyCourse/${course.dId}">
+                    <a href="/course/showStudentsbyCourse/${course.dId}">
                         <button>Grade</button>
                     </a>
 

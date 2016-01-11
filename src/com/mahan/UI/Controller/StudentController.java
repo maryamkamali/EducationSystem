@@ -70,7 +70,9 @@ StudentBLO blo=new StudentBLO();
             HttpSession session = req.getSession();
             Student student = blo.findStudent(((Person) session.getAttribute("user")).getdId());
             CourseBLO cBlo=new CourseBLO();
-            req.getSession().setAttribute("selectedCourses",cBlo.loadStudentCourses(student).getCourses());
+            student=cBlo.loadStudentCourses(student);
+            req.getSession().setAttribute("selectedCourses",student.getCourses());
+            req.getSession().setAttribute("average",student.getAverage());
             RequestDispatcher rd = req.getRequestDispatcher("/studenttranscript.jsp");
             rd.forward(req, res);
         } catch (Exception e) {

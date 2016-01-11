@@ -95,16 +95,5 @@ TeacherBLO blo=new TeacherBLO();
             e.printStackTrace();
         }
     }
-    public void showStudentsbyCourse() {
-        HttpSession session = req.getSession();
-        StudentBLO sBlo=new StudentBLO();
-        Long courseId = (Long) req.getAttribute("id");
-        try {
-            session.setAttribute("studentsCourse", sBlo.getStudentsbyCourseId(courseId));
-            RequestDispatcher rd = req.getRequestDispatcher("/teachercourses.jsp");
-            rd.forward(req, res);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 }

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginController extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -24,14 +26,33 @@ public class LoginController extends HttpServlet {
             Person person = myBLO.findUser(request.getParameter("userName"));
             session.setAttribute("user", person);
             if ((person != null) && (person.getPassword().equals(request.getParameter("password")))) {
-              switch (person.getRole()){
-                  case 0:{response.sendRedirect("/adminhome.jsp");
-                  break;}
-                  case 1:{response.sendRedirect("/studenthome.jsp");
-                  break;}
-                  case 2:{response.sendRedirect("/teacherhome.jsp");
-                  break;}
-              }
+                HashMap<String, String> menueItems = new HashMap<>();
+                switch (person.getRole()) {
+                    case 0: {
+                        menueItems.put("Manage Students", "/admin/student/showList");
+                        menueItems.put("Manage Teachers", "/admin/teacher/showList");
+                        menueItems.put("Manage Courses", "/admin/course/showList");
+                        person.setMenueItems(menueItems);
+                        person.setHomePageAddress("/adminhome.jsp");
+                        response.sendRedirect(person.getHomePageAddress());
+                        break;
+                    }
+                    case 1: {
+                        menueItems.put("Register", "/student/showCourses");
+                        menueItems.put("Transcript", "/student/showTranscript");
+                        person.setMenueItems(menueItems);
+                        person.setHomePageAddress("/studenthome.jsp");
+                        response.sendRedirect(person.getHomePageAddress());
+                        break;
+                    }
+                    case 2: {
+                        menueItems.put("Set Grades", "/teacher/showCourses/");
+                        person.setMenueItems(menueItems);
+                        person.setHomePageAddress("/teacherhome.jsp");
+                        response.sendRedirect(person.getHomePageAddress());
+                        break;
+                    }
+                }
 
             } else {
                 response.sendRedirect("/loginfail.jsp");

@@ -15,7 +15,7 @@
     <title>login</title>
 </head>
 <div>
-    <h1 id="liginTitle" align="center">Login to gallery</h1>
+    <h1 id="liginTitle" align="center">Login</h1>
 </div>
 <body>
 <div align="center">

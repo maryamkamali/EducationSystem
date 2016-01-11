@@ -13,15 +13,15 @@
 </head>
 <body>
 <div class="container top-admin">
-  <div class="row">
-    <div class="col-md-offset-4 col-md-4">
-      <a href="/teacher/showCourses/">
-        <button class="btn-my">
-          Set Grades
-        </button>
-      </a>
-    </div>
-  </div>
+  <%--<div class="row">--%>
+    <%--<div class="col-md-offset-4 col-md-4">--%>
+      <%--<a href="/teacher/showCourses/">--%>
+        <%--<button class="btn-my">--%>
+          <%--Set Grades--%>
+        <%--</button>--%>
+      <%--</a>--%>
+    <%--</div>--%>
+  <%--</div>--%>
   </div>
 </body>
 <c:set var="role_course" scope="session" value="teacher"></c:set>

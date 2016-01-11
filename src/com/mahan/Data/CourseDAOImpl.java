@@ -57,9 +57,7 @@ public class CourseDAOImpl extends BaseDAO implements CourseDAO{
         ResultSet rs = stm.executeQuery(query);
         return rs;
     }
-
-
-
+    
     public void updateGrade(Long id, float grade) throws SQLException {
 
         String query = "UPDATE [dbo].[Education_Student_Course] SET Grade =' "+grade+"' where Id ='"+id+"'";

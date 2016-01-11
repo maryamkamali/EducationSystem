@@ -1,6 +1,7 @@
 package com.mahan.UI.Model;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Created by 921227 on 11/24/2015.
@@ -10,7 +11,7 @@ public class Student extends Person {
     private FieldsOfStudy fieldsOfStudy;
     private Degree degree;
     private ArrayList<Course> courses;
-
+private float average;
     public FieldsOfStudy getFieldsOfStudy() {
         return fieldsOfStudy;
     }
@@ -42,5 +43,14 @@ public class Student extends Person {
     public void setCourses(ArrayList<Course> courses) {
         this.courses = courses;
     }
+
+    public float getAverage() {
+        return average;
+    }
+
+    public void setAverage(float average) {
+        this.average = average;
+    }
+
 }
 

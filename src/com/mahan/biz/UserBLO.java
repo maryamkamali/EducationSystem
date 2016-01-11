@@ -25,8 +25,8 @@ public class UserBLO {
             person.setPassword(rs.getString("Password"));
             person.setdId(rs.getLong("Id"));
             person.setRole(rs.getInt("role"));
+            person.getMenueItems();
         }
         return person;
     }
-
 }

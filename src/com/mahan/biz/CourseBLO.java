@@ -57,8 +57,9 @@ public class CourseBLO {
             course.setTeacherName(rs.getString("FirstName") + " " + rs.getString("LastName"));
             course.setPoint(rs.getInt("Point"));
             courses.add(course);
-
         }
+        StudentBLO sBlo=new StudentBLO();
+        student.setAverage(sBlo.calculateAverage(courses));
         student.setCourses(courses);
         return student;
     }
