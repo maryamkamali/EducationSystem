@@ -31,12 +31,9 @@ public class LoginController extends HttpServlet {
                   case 2:{response.sendRedirect("/teacherhome.jsp");
                   break;}
               }
-
             } else {
                 response.sendRedirect("/loginfail.jsp");
             }
-
-
         } catch (Exception e1) {
             response.sendRedirect("/ErrorHandler");
             System.out.println(e1.getMessage());
