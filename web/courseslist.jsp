@@ -18,7 +18,7 @@
 <body>
 <div class="container">
     <jsp:include page="header.jsp"></jsp:include>
-    <table class="table-my" style="width:100%" border="1">
+    <table class="table-my" border="1">
         <tr>
             <th>Course Number</th>
             <th>Title</th>

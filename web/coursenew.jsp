@@ -14,7 +14,7 @@
     <jsp:include page="header.jsp"></jsp:include>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container">
     <div class="panel panel-primary dialog-panel">
         <div>
             <header></header>
@@ -23,7 +23,7 @@
             <h5>Course Adding Form</h5>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
+            <div class="col-sm-offset-1">
                 <div class="panel-body">
                     <form class="form-horizontal" style="margin-top: 20%" action="/admin/course/save/" method="post">
                         <input type="hidden" name="identifier" value="course">
@@ -31,15 +31,15 @@
                         <br><br>
 
                         <div class="form-group">
-                            <label for="title" class="col-sm-3 control-label">Title</label>
+                            <label for="title" class="col-sm-2 control-label">Title</label>
                             <input type="text" class="col-sm-3" id="title" name="title">
-                            <label class="col-sm-3 control-label" for="courseid">Course Number</label>
+                            <label class="col-sm-2 control-label" for="courseid">Course Number</label>
                             <input type="text" class="col-sm-3" id="courseid" name="courseNo">
                         </div>
                         <div class="form-group">
-                            <label for="point" class="col-sm-3 control-label">Point</label>
+                            <label for="point" class="col-sm-2 control-label">Point</label>
                             <input type="text" id="point" class="col-sm-3" name="point">
-                            <label class="col-sm-3">Teacher</label>
+                            <label class="col-sm-2">Teacher</label>
                             <select class="col-sm-3 form-control" name="teacherName">
                                 <c:forEach var="teacher" items="${teachers}">
                                     <option value="${teacher.lastname}">

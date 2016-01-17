@@ -13,31 +13,32 @@
     <jsp:include page="header.jsp"></jsp:include>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container">
     <div class="panel panel-primary dialog-panel">
         <div class="panel-heading">
             <h5>Course Edit Form</h5>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
+            <div class="col-sm-offset-1">
                 <form class="form-horizontal" style="margin-top: 20%" action="/createbean.jsp" method="post">
                     <input type="hidden" name="identifier" value="course">
                     <label> General Information:</label>
                     <br><br>
 
                     <div class="form-group">
-                        <label class="col-sm-3" for="title">Title</label>
+                        <label class="col-sm-2" for="title">Title</label>
                         <input type="text" class="col-sm-3" id="title" name="title"
                                value="${courses[courseOrder].title}">
-                        <label class="col-sm-3" for="courseid">Course Number</label>
+                        <label class="col-sm-2" for="courseid">Course Number</label>
                         <input type="text" class="col-sm-3" id="courseid" name="courseNo"
                                value="${courses[courseOrder].courseNo}">
                     </div>
                     <div class="form-group">
-                        <label for="point" class="col-sm-3">Point</label>
+                        <label for="point" class="col-sm-2">Point</label>
                         <input type="text" id="point" class="col-sm-3" name="point"
                                value="${courses[courseOrder].point}">
-                        <label class="col-sm-3">Teacher</label>
+
+                        <label class="col-sm-2">Teacher</label>
                         <select class="col-sm-3" name="teacherName" value="${courses[courseOrder].teacherName}">
 
                             <c:forEach var="teacher" items="${teachers}">

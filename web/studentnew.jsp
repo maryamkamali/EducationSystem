@@ -15,13 +15,13 @@
     <script src="/assets/js/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container">
     <div class="panel panel-primary dialog-panel">
         <div class="panel-heading">
             <h5>Student Adding Form</h5>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
+            <div class="col-sm-offset-1">
                 <div class="panel-body">
                     <form action="/student/save" class="form-horizontal" style="margin-top: 20%">
                         <input type="hidden" name="identifier" value="student">
@@ -29,33 +29,33 @@
                         <br><br>
 
                         <div class="form-group">
-                            <label for="firstname" class="col-sm-3">First Name</label>
+                            <label for="firstname" class="col-sm-2">First Name</label>
                             <input type="text" id="firstname" class="col-sm-3" name="firstname">
-                            <label for="lastname" class="col-sm-3">Last Name</label>
+                            <label for="lastname" class="col-sm-2">Last Name</label>
                             <input type="text" id="lastname" class="col-sm-3" name="lastname">
                         </div>
                         <div class="form-group">
-                            <label for="NationalNo" class="col-sm-3">National Number</label>
+                            <label for="NationalNo" class="col-sm-2">National Number</label>
                             <input type="text" id="NationalNo" class="col-sm-3" name="nationalNo">
-                            <label for="BirthDate" class="col-sm-3">Birth Date</label>
+                            <label for="BirthDate" class="col-sm-2">Birth Date</label>
                             <input id="BirthDate" type="text" name="birthDate" class="col-sm-3"/>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2">Gender</label>
                             <input type="radio" name="gender" value="Male" class="col-sm-1">
-                            <label class="col-sm-2">Male</label>
+                            <label class="col-sm-1">Male</label>
                             <input type="radio" name="gender" value="Female" class="col-sm-1">
-                            <label class="col-sm-2">Female</label>
+                            <label class="col-sm-1">Female</label>
                         </div>
                         <label> Education Information:</label>
                         <br><br>
 
                         <div class="form-group">
-                            <label for="StudentID" class="col-sm-3">Student Number</label>
+                            <label for="StudentID" class="col-sm-2">Student Number</label>
                             <input type="text" id="studentid" class="col-sm-3" name="studentNo">
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3">Field of Study</label>
+                            <label class="col-sm-2">Field of Study</label>
                             <select class="col-sm-3 form-control" name="fieldsOfStudy">
 
                                 <c:forEach var="field" items="${fields}">
@@ -64,7 +64,7 @@
                                     </option>
                                 </c:forEach>
                             </select>
-                            <label class="col-sm-3">Degree</label>
+                            <label class="col-sm-2">Degree</label>
                             <select class="col-sm-3 form-control" name="degree">
 
                                 <c:forEach var="degree" items="${degrees}">
@@ -78,15 +78,15 @@
                         <br><br>
 
                         <div class="form-group">
-                            <label for="email" class="col-sm-3">Email</label>
+                            <label for="email" class="col-sm-2">Email</label>
                             <input type="text" id="email" class="col-sm-3" name="email">
-                            <label for="phone" class="col-sm-3">Phone</label>
+                            <label for="phone" class="col-sm-2">Phone</label>
                             <input type="text" id="phone" class="col-sm-3" name="tel">
                         </div>
 
                         <div class="form-group">
-                            <label for="address" class="col-sm-3">Address</label>
-                            <input type="text" id="address" class="col-sm-9" name="address">
+                            <label for="address" class="col-sm-2">Address</label>
+                            <input type="text" id="address" class="col-sm-8" name="address">
                         </div>
                         <button class="btn btn-success">Submit</button>
                     </form>
