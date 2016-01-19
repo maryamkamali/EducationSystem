@@ -1,6 +1,8 @@
 package com.mahan.Filter;
 
-import com.mahan.biz.Person;
+
+
+import com.mahan.UI.Model.Person;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
